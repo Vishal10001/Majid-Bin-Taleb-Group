@@ -10,12 +10,13 @@ const Typography = ({
                         style,
                         tag = 'body1',
                         gutterBottom = false,
+                        dangerouslySetInnerHTML,
                         ...restProps
                     }) => {
     const typoStyle = useMemo(() => ({...style}), [style]);
 
     return (
-        <StyledTypography {...restProps} variant={tag} style={typoStyle} gutterBottom={gutterBottom}>
+        <StyledTypography dangerouslySetInnerHTML={dangerouslySetInnerHTML} {...restProps} variant={tag} style={typoStyle} gutterBottom={gutterBottom}>
             {text}
         </StyledTypography>
     );

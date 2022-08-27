@@ -18,3 +18,5 @@ export const navList = [
         navName: 'من نحن',
     },
 ];
+
+export const practiceArray = [{text: 'حوادث السيارات '}, {text: 'حوادث السيارات '}, {text: 'حوادث السيارات '}, {text: 'حقوق الملكية '}, {text: 'حوادث السيارات '}];
