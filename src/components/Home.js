@@ -1,6 +1,9 @@
 import React from "react";
 import { Container, Box } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import WestIcon from '@mui/icons-material/West';
+import EastIcon from '@mui/icons-material/East';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import Slider from "react-slick";
 import HammerImg from '../assets/law-justice-bg.jpg';
 import Typography from "../commonComponent/Typography";
@@ -13,18 +16,33 @@ import dhlImg from "../assets/dhlImg.svg";
 import bankLogo from "../assets/bankLogo.svg";
 import diamond from "../assets/diamond.svg";
 import quoteImg from "../assets/quoteImg.svg";
+import teamImg from "../assets/teamImg.svg";
 import { feedbackArray, practiceArray } from "../utils";
+import Footer from "../commonComponent/Footer";
 
+const slickImgStyle = {
+    color: '#fff !important',
+    backgroundColor: '#AE965A !important',
+    p: 1,
+    width: '50px',
+    height: '38px',
+    borderRadius: 10
+};
 var settings = {
-    dots: true,
+    dots: false,
     infinite: true,
+    centerMode: true,
     speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
+    cssEase: 'linear',
+    slidesToShow: 3,
+    slidesToScroll: 2,
+    prevArrow: <WestIcon sx={{ ...slickImgStyle }} />,
+    nextArrow: <EastIcon sx={{ ...slickImgStyle }} />
 };
 
 const Home = () => {
     const sampleText = 'نوفر من خلال مجموعة ماجد بن  طالب مجموعة  <br/>مختلفة من الخدمات القانونية<br/> التى تحتاج اليه';
+    const isMobile = window.mobileAndTabletCheck();
     return (
         <Box sx={{ backgroundImage: `url(${diamond})` }}>
             <Container
@@ -36,11 +54,11 @@ const Home = () => {
                 }}
                 className='flex-column'
             >
-                <Box className='d-flex' sx={{ mt: '120px' }}>
-                    <Box sx={{ borderTopRightRadius: '31% 50%', overflow: 'hidden', width: '100%' }}>
+                <Box className='d-flex flex-wrap' sx={{ mt: '120px', flexDirection: isMobile ? 'column' : 'row' }}>
+                    <Box sx={{ borderTopRightRadius: '31% 50%', overflow: 'hidden', width: '100%', order: isMobile ? 1 : 0 }}>
                         <img src={HammerImg} alt='' />
                     </Box>
-                    <Box className='d-flex flex-column'>
+                    <Box className='d-flex flex-wrap flex-column' sx={{ order: isMobile ? 0 : 1 }}>
                         <Box>
                             <Typography className='text-end'
                                 sx={{
@@ -71,9 +89,9 @@ const Home = () => {
                         </Box>
                     </Box>
                 </Box>
-                <Box className='d-flex align-items-center justify-content-center' mt='-30px'>
+                <Box className='d-flex flex-wrap align-items-center justify-content-center' mt='-30px'>
                     <Box sx={{ backgroundColor: '#39281F', borderRadius: 1.5 }}
-                        className='d-flex align-items-center' px={4}
+                        className='d-flex flex-wrap align-items-center' px={4}
                         py={3}>
                         <Box px={5} className='d-flex align-items-center' sx={{ borderRight: '1px solid #fff' }}>
                             <Typography sx={(theme) => ({ fontSize: '40px', color: theme.palette.white[100], mr: 1 })}
@@ -91,7 +109,7 @@ const Home = () => {
                         </Box>
                     </Box>
                 </Box>
-                <Box className='d-flex align-items-center justify-content-center' mt={1}>
+                <Box className='d-flex flex-wrap align-items-center justify-content-center' mt={1}>
                     <Box sx={(theme) => ({
                         backgroundColor: theme.palette.secondary.main,
                         borderRadius: 5,
@@ -102,16 +120,15 @@ const Home = () => {
                         <ExpandMoreIcon sx={{ fill: 'white' }} />
                     </Box>
                 </Box>
-            </Container>
+            </Container >
             <Box sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderTopRightRadius: '140px' })}>
                 <Container
-                    maxWidth='xl'
                     sx={{
                         gap: '10px',
                         display: 'flex',
                         height: '100%',
                     }}
-                    className='flex-column'
+                    className='flex-column  flex-wrap'
                 >
                     <Box className='text-end' pb={10} pt={7}>
                         <Typography text='لوريم إيبسوم' sx={{ color: '#39281F', fontSize: '44px' }} />
@@ -135,7 +152,7 @@ const Home = () => {
                     </Box>
                 </Container>
             </Box>
-            <Box sx={{ maxHeight: '500px', margin: '0 auto', height: '100%' }}>
+            <Box sx={{ maxHeight: isMobile ? ' auto' : '500px', margin: '0 auto', height: '100%' }}>
                 <Container
                     maxWidth='xl'
                     sx={{
@@ -143,7 +160,7 @@ const Home = () => {
                         display: 'flex',
                         height: '100%',
                     }}
-                    className='flex-column justify-content-center align-items-center'
+                    className='flex-column justify-content-center align-items-center flex-wrap'
                 >
                     <Box className='d-flex align-items-center justify-content-between w-100'>
                         <Typography sx={(theme) => ({ color: theme.palette.secondary.main, fontSize: '39px' })}
@@ -169,7 +186,7 @@ const Home = () => {
                     </Box>
                 </Container>
             </Box>
-            <Box mt={5}>
+            <Box mt={10}>
                 <Container
                     maxWidth={false}
                     sx={{
@@ -177,7 +194,7 @@ const Home = () => {
                         display: 'flex',
                         height: '100%',
                     }}
-                    className='flex-column justify-content-center align-items-center'
+                    className='flex-column justify-content-center align-items-center  flex-wrap'
                 >
                     <Typography text='عملاؤنا' sx={(theme) => ({
                         color: theme.palette.primary.main,
@@ -207,20 +224,23 @@ const Home = () => {
                     </Box>
                 </Container>
             </Box>
-            <Box sx={{ maxHeight: '400px', height: '100%' }}>
+            <Box sx={{ maxHeight: '500px', height: '100%' }}>
                 <Container
                     maxWidth={false}
                     sx={(theme) => ({
                         gap: '10px',
                         display: 'flex',
-                        height: '100%',
-                        maxHeight: '350px'
                     })}
+                    className=" flex-wrap"
                 >
                     <Box sx={(theme) => ({ background: theme.palette.primary.main, borderTopRightRadius: '140px' })}
-                        className='w-100 d-flex align-items-center justify-content-around'>
-                        <img src={dhlImg} alt='' />
-                        <img src={bankLogo} alt='' />
+                        className='w-100 d-flex flex-wrap align-items-center justify-content-around' p={2}>
+                        <Box sx={{ maxWidth: '576px', height: '128px' }}>
+                            <img src={dhlImg} alt='' className="h-100 w-100" />
+                        </Box>
+                        <Box sx={{ maxWidth: '576px', height: '128px' }}>
+                            <img src={bankLogo} alt='' className="h-100 w-100" />
+                        </Box>
                     </Box>
                 </Container>
             </Box>
@@ -272,7 +292,138 @@ const Home = () => {
                     </Slider>
                 </Container>
             </Box>
-        </Box>
+            {/* Team */}
+            <Box mt={10}>
+                <Container
+                    maxWidth={false}
+                    sx={{
+                        gap: '10px',
+                        display: 'flex',
+                        height: '100%',
+                    }}
+                    className='flex-column justify-content-center align-items-center'
+                >
+                    <Typography text='فريق العمل' sx={(theme) => ({
+                        color: theme.palette.primary.main,
+                        fontSize: '44px',
+                        fontWeight: 800
+                    })} />
+                </Container>
+            </Box>
+            <Box mt={5} sx={(theme) => ({ backgroundColor: theme.palette.white[100] })} p={5}>
+                <Container maxWidth={false} className='team'>
+                    <Slider {...settings}>
+                        {feedbackArray.map((item, index) =>
+                            <Box p={2} key={index} sx={{ border: '1px solid #AE965A', height: '450px', width: '400px' }}
+                                className="d-flex align-items-end justify-content-center">
+                                <Box width="100%">
+                                    <Box mt={5} width="100%">
+                                        <img src={teamImg} alt='' width='100%' />
+                                    </Box>
+                                </Box>
+                            </Box>)}
+                    </Slider>
+                </Container>
+            </Box>
+            <Box mt={10}>
+                <Container
+                    sx={{
+                        gap: '10px',
+                        display: 'flex',
+                        height: '100%',
+                    }}
+                    maxWidth={false}
+                    className='flex-column  flex-wrap'
+                >
+                    <Box sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderBottomRightRadius: '140px' })}>
+                        <Container
+                            sx={{
+                                gap: '10px',
+                                display: 'flex',
+                                height: '100%',
+                            }}
+                            className='flex-column'
+                        >
+                            <Box className='text-end' pb={10} pt={7}>
+                                <Box className='d-flex align-items-center justify-content-between'>
+                                    <Box className='d-flex gap-3  align-items-center'>
+                                        <WestIcon sx={{ fill: '#AE965A' }} />
+                                        <Typography text='اطلع على المزيد' sx={{ color: '#AE965A', fontSize: '30px', fontWeight: 600 }} />
+                                    </Box>
+                                    <Typography text='المدونة'
+                                        sx={{ color: '#39281F', fontSize: '30px', mt: '-10px' }} />
+                                </Box>
+                                <Box mt={5} className="d-flex flex-wrap align-items-center justify-content-between">
+                                    <Box className="d-flex flex-column gap-4" sx={{
+                                        maxWidth: '450px', p: 2,
+                                        boxShadow: '0px 15px 70px 0px #00000040'
+                                    }}>
+                                        <Box className="d-flex align-items-end" sx={{ maxWidth: '320px' }}>
+                                            <WestIcon sx={{ fill: '#AE965A' }} />
+                                            <Typography text='لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي  '
+                                                sx={{ color: '#39281F', fontSize: '25px', fontWeight: 700 }} />
+                                        </Box>
+                                        <Box className="d-flex align-items-center justify-content-end">
+                                            <Typography text='فبراير, 2022'
+                                                sx={{ color: '#CAC7C7', fontSize: '25px', fontWeight: 500 }} />
+                                            <CalendarMonthIcon />
+                                        </Box>
+                                    </Box>
+                                    <Box className="d-flex flex-column gap-4" sx={{
+                                        maxWidth: '450px', p: 2,
+                                        boxShadow: '0px 15px 70px 0px #00000040'
+                                    }}>
+                                        <Box className="d-flex align-items-end" sx={{ maxWidth: '320px' }}>
+                                            <WestIcon sx={{ fill: '#AE965A' }} />
+                                            <Typography text='لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي  '
+                                                sx={{ color: '#39281F', fontSize: '25px', fontWeight: 700 }} />
+                                        </Box>
+                                        <Box className="d-flex align-items-center justify-content-end">
+                                            <Typography text='فبراير, 2022'
+                                                sx={{ color: '#CAC7C7', fontSize: '25px', fontWeight: 500 }} />
+                                            <CalendarMonthIcon />
+                                        </Box>
+                                    </Box>
+                                    <Box className="d-flex flex-column gap-4" sx={{
+                                        maxWidth: '450px', p: 2,
+                                        boxShadow: '0px 15px 70px 0px #00000040'
+                                    }}>
+                                        <Box className="d-flex align-items-end" sx={{ maxWidth: '320px' }}>
+                                            <WestIcon sx={{ fill: '#AE965A' }} />
+                                            <Typography text='لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي  '
+                                                sx={{ color: '#39281F', fontSize: '25px', fontWeight: 700 }} />
+                                        </Box>
+                                        <Box className="d-flex align-items-center justify-content-end">
+                                            <Typography text='فبراير, 2022'
+                                                sx={{ color: '#CAC7C7', fontSize: '25px', fontWeight: 500 }} />
+                                            <CalendarMonthIcon />
+                                        </Box>
+                                    </Box>
+                                </Box>
+                            </Box>
+                        </Container>
+                    </Box>
+                </Container>
+            </Box>
+            <Box mt={15} sx={(theme) => ({ backgroundColor: '#AE965A', borderBottomRightRadius: '140px', maxHeight: '500px', height: '100%' })} p={5}>
+                <Container maxWidth={false}>
+                    <Slider {...settings}>
+                        {feedbackArray.map((item, index) =>
+                            <Box p={2} key={index} sx={{
+                                maxHeight: '422px',
+                                maxWidth: '430px',
+                                border: '1px solid #AE965A',
+                                height: '300px',
+                                width: '300px',
+                                borderRadius: 10,
+                                background: '#fff',
+                                boxShadow: '0px 15px 70px 0px #00000040',
+                            }} className='text-end' />)}
+                    </Slider>
+                </Container>
+            </Box>
+            <Footer />
+        </Box >
     )
 };
 export default Home;
