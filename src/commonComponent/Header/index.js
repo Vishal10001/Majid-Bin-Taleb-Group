@@ -1,5 +1,6 @@
 import React from "react";
-import {Box, AppBar, Container} from '@mui/material'
+import {Box, AppBar, Container} from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 
 import Button from "../Button";
 import searchIcon from '../../assets/searchIcon.svg';
@@ -39,7 +40,8 @@ const Header = () => {
                         })}>
                             الخدمات الإلكترونية
                         </Button>
-                        <img src={searchIcon} alt=''/>
+                        <SearchIcon sx={{ fill: '#AE965A' }} />
+                        {/* <img src={searchIcon} alt=''/> */}
                     </Box>
                     <Box className='d-flex align-items-center justify-content-between gap-3'>
                         <Box
