@@ -5,9 +5,10 @@ import Twitter from '@mui/icons-material/Twitter';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Typography from '../Typography';
 
-const Footer = () => {
+const Footer = (props) => {
+    const { sx } = props;
     return (
-        <Box mt={25} sx={{ borderTop: 2, borderColor: '#AE965A' }}>
+        <Box mt={25} sx={{ borderTop: 2, borderColor: '#AE965A', ...sx }}>
             <Container
                 maxWidth='xl'
                 sx={{

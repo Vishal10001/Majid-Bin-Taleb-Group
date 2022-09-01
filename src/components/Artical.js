@@ -5,6 +5,8 @@ import articalImg from "../assets/articalImg.jpg";
 import SearchBar from "../commonComponent/SearchBar";
 import Typography from "../commonComponent/Typography";
 import Pagination from "../commonComponent/Pagination";
+import Footer from "../commonComponent/Footer";
+import whatsappIcon from "../assets/whatsappIcon.svg";
 
 const Artical = () => {
     const [age, setAge] = React.useState('');
@@ -14,8 +16,9 @@ const Artical = () => {
         setAge(event.target.value);
     };
 
+    const isMobile = window.mobileAndTabletCheck();
     return (
-        <Box>
+        <Box className="position-relative">
             <Container
                 maxWidth='xl'
                 sx={{
@@ -85,8 +88,8 @@ const Artical = () => {
                 >
                     <Box mt={5} className='d-flex flex-column gap-5'>
                         {Array.from({ length: 8 }).map(() =>
-                            <Box className="d-flex align-items-streach justify-content-between bg-white" sx={{ borderTopRightRadius: '50px' }}>
-                                <Box>
+                            <Box className="d-flex flex-wrap align-items-streach justify-content-between bg-white" sx={{ borderTopRightRadius: isMobile ? '0px' : '50px' }}>
+                                <Box sx={{ width: isMobile ? '100%' : 'auto' }}>
                                     <img style={{ maxHeight: '200px', borderBottomRightRadius: '60px' }} src={articalImg} alt="" />
                                 </Box>
                                 <Box className="d-flex flex-column justify-content-between" p={3}>
@@ -124,9 +127,33 @@ const Artical = () => {
                     </Box>
                 </Container>
             </Container>
+            <Box my={5} className='d-flex position-absolute align-items-center justify-content-end gap-3' sx={{ top: '50%', right: 0 }}>
+                <Box className='position-relative'
+                    sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30 })} p={1}
+                    px={2}>
+                    <Box sx={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '100%',
+                        marginTop: '-5px',
+                        borderWidth: '5px',
+                        borderStyle: 'solid',
+                        borderColor: 'transparent transparent transparent white',
+                    }} />
+                    <Typography sx={(theme) => ({
+                        color: theme.palette.primary.main,
+                        fontSize: '14px',
+                        fontWeight: 500
+                    })} text='تواصل معنا الآن عبر الواتساب ' />
+                </Box>
+                <Box sx={{ maxWidth: '40px', maxHeight: '40px' }}>
+                    <img src={whatsappIcon} alt='' className="h-100 w-100" />
+                </Box>
+            </Box>
             <Box mt={5} className="d-flex align-items-center justify-content-center">
                 <Pagination onChange={(pageNum) => setPage(pageNum)} page={page} count={10} />
             </Box>
+            <Footer sx={{ mt: 5 }} />
         </Box>
     )
 };
