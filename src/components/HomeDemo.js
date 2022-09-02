@@ -18,7 +18,7 @@ import diamond from "../assets/diamond.svg";
 import quoteImg from "../assets/quoteImg.svg";
 import teamImg from "../assets/teamImg.svg";
 import userImg from "../assets/userImg.png";
-import { feedbackArray, practiceArray } from "../utils";
+import { feedbackArray, mobileAndTabletCheck, practiceArray } from "../utils";
 import Footer from "../commonComponent/Footer";
 
 const slickImgStyle = {
@@ -43,7 +43,7 @@ var settings = {
 const HomeDemo = () => {
     const sampleText = 'نوفر من خلال مجموعة ماجد بن  طالب مجموعة  <br/>مختلفة من الخدمات القانونية<br/> التى تحتاج اليه';
     const teamText = 'تفاصيل الشخص اسم الشخص </br> تعيين</br> الشخص'
-    const isMobile = window.mobileAndTabletCheck();
+    const isMobile = mobileAndTabletCheck();
     return (
         <Box sx={{ backgroundImage: `url(${diamond})` }}>
             <Box className="main-banner " sx={{ background: `url(${HammerImg})` }}>

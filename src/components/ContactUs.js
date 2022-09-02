@@ -1,14 +1,13 @@
 import React from 'react';
-import { Grid, Paper, Container, Box, List } from '@mui/material';
+import { Grid, Paper, Container, Box } from '@mui/material';
 import { experimentalStyled as styled } from '@mui/material/styles';
-import carImg from "../assets/car.svg";
 import diamond from "../assets/diamond.svg";
 import Typography from '../commonComponent/Typography';
 import whatsappIcon from "../assets/whatsappIcon.svg";
 import Footer from '../commonComponent/Footer';
-import MyMapComponent from '../commonComponent/GoogleMap';
 import TextField from '../commonComponent/TextField';
 import Button from '../commonComponent/Button';
+import ContactMap from '../commonComponent/GoogleMap';
 
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
@@ -58,7 +57,7 @@ const ContactUs = () => {
                     >
                         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
                             <Grid item xs={4} sm={6} md={6}>
-                                <MyMapComponent />
+                                <ContactMap />
                             </Grid>
                             <Grid className='gap-3 d-flex flex-column' item xs={4} sm={6} md={6}>
                                 <TextField />

@@ -17,7 +17,7 @@ import bankLogo from "../assets/bankLogo.svg";
 import diamond from "../assets/diamond.svg";
 import quoteImg from "../assets/quoteImg.svg";
 import teamImg from "../assets/teamImg.svg";
-import { feedbackArray, practiceArray } from "../utils";
+import { feedbackArray, mobileAndTabletCheck, practiceArray } from "../utils";
 import Footer from "../commonComponent/Footer";
 
 const slickImgStyle = {
@@ -42,7 +42,7 @@ var settings = {
 
 const Home = () => {
     const sampleText = 'نوفر من خلال مجموعة ماجد بن  طالب مجموعة  <br/>مختلفة من الخدمات القانونية<br/> التى تحتاج اليه';
-    const isMobile = window.mobileAndTabletCheck();
+    const isMobile = mobileAndTabletCheck();
     return (
         <Box sx={{ backgroundImage: `url(${diamond})` }}>
             <Container

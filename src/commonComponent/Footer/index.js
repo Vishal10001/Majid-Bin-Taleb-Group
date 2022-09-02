@@ -6,10 +6,10 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Typography from '../Typography';
 
 const Footer = (props) => {
-    const { sx } = props;
+    const { sx, hideContent, children } = props;
     return (
         <Box mt={25} sx={{ borderTop: 2, borderColor: '#AE965A', ...sx }}>
-            <Container
+            {!hideContent ? <Container
                 maxWidth='xl'
                 sx={{
                     gap: '10px',
@@ -57,6 +57,19 @@ const Footer = (props) => {
                     </Box>
                 </Box>
             </Container>
+                :
+                <Container
+                    maxWidth={false}
+                    sx={{
+                        gap: '10px',
+                        display: 'flex',
+                        height: 'auto',
+                    }}
+                    className='flex-column'
+                >
+                    {children}
+                </Container>
+            }
         </Box>
     )
 }

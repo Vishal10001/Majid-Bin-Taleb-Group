@@ -7,6 +7,7 @@ import Typography from "../commonComponent/Typography";
 import Pagination from "../commonComponent/Pagination";
 import Footer from "../commonComponent/Footer";
 import whatsappIcon from "../assets/whatsappIcon.svg";
+import { mobileAndTabletCheck } from "../utils";
 
 const Artical = () => {
     const [age, setAge] = React.useState('');
@@ -16,7 +17,7 @@ const Artical = () => {
         setAge(event.target.value);
     };
 
-    const isMobile = window.mobileAndTabletCheck();
+    const isMobile = mobileAndTabletCheck();
     return (
         <Box className="position-relative">
             <Container

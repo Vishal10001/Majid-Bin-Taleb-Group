@@ -1,57 +1,51 @@
-const { compose, withProps, withState, withHandlers } = require("recompose");
-// const FaAnchor = require("react-icons/lib/fa/anchor");
+import React from "react";
+const { compose, withProps, withHandlers } = require("recompose");
 const {
     withScriptjs,
     withGoogleMap,
     GoogleMap,
     Marker,
-    InfoWindow,
 } = require("react-google-maps");
 
-const MapWithControlledZoom = compose(
+const MyMapComponent = compose(
     withProps({
-        googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places",
+        /**
+         * Note: create and replace your own key in the Google console.
+         * https://console.developers.google.com/apis/dashboard
+         * The key "AIzaSyBkNaAGLEVq0YLQMi-PYEMabFeREadYe1Q" can be ONLY used in this sandbox (no forked).
+         */
+        googleMapURL:
+            "https://maps.googleapis.com/maps/api/js?key=AIzaSyBkNaAGLEVq0YLQMi-PYEMabFeREadYe1Q&v=3.exp&libraries=geometry,drawing,places",
         loadingElement: <div style={{ height: `100%` }} />,
         containerElement: <div style={{ height: `400px` }} />,
-        mapElement: <div style={{ height: `100%` }} />,
-    }),
-    withState('zoom', 'onZoomChange', 8),
-    withHandlers(() => {
-        const refs = {
-            map: undefined,
-        }
-
-        return {
-            onMapMounted: () => ref => {
-                refs.map = ref
-            },
-            onZoomChanged: ({ onZoomChange }) => () => {
-                onZoomChange(refs.map.getZoom())
-            }
-        }
+        mapElement: <div style={{ height: `100%` }} />
     }),
     withScriptjs,
     withGoogleMap
-)(props =>
-    <GoogleMap
-        defaultCenter={{ lat: -34.397, lng: 150.644 }}
-        zoom={props.zoom}
-        ref={props.onMapMounted}
-        onZoomChanged={props.onZoomChanged}
-    >
-        <Marker
-            position={{ lat: -34.397, lng: 150.644 }}
-            onClick={props.onToggleOpen}
-        >
-            <InfoWindow onCloseClick={props.onToggleOpen}>
-                <div>
-                    {/* <FaAnchor /> */}
-                    {" "}
-                    Controlled zoom: {props.zoom}
-                </div>
-            </InfoWindow>
-        </Marker>
+)((props) =>
+    <GoogleMap defaultZoom={8} defaultCenter={{ lat: -34.397, lng: 150.644 }}>
+        {props.isMarkerShown && (
+            <Marker position={{ lat: -34.397, lng: 150.644 }} />
+        )}
     </GoogleMap>
 );
 
-export default MapWithControlledZoom;
+
+class ContactMap extends React.PureComponent {
+    render() {
+        return (
+            <div
+                className="map"
+                style={{
+                    width: '100%',
+                    position: "relative",
+                    height: "545px"
+                }}
+            >
+                <MyMapComponent />
+            </div>
+        )
+    }
+}
+
+export default ContactMap;

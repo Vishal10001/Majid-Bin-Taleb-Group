@@ -1,21 +1,22 @@
 import React from "react";
 import Header from "./commonComponent/Header";
-import { Artical, Home, HomeDemo } from "./components";
+import { Artical, Home, HomeDemo, Login,ContactUs } from "./components";
+import Routes from "./Routes";
 import './App.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import PracticeAreas from "./components/PracticeAreas";
-import ContactUs from "./components/ContactUs";
 
 function App() {
     return (
         <div className="App">
             <Header />
+            {/* <Routes /> */}
             {/* <PracticeAreas /> */}
             {/* <Artical /> */}
             {/* <Home /> */}
             {/* <HomeDemo /> */}
             <ContactUs />
+            {/* <Login /> */}
         </div>
     );
 }
