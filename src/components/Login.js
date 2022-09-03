@@ -6,14 +6,11 @@ import Typography from '../commonComponent/Typography';
 import whatsappIcon from "../assets/whatsappIcon.svg";
 import Footer from '../commonComponent/Footer';
 import HammerImg from '../assets/law-justice-bg.jpg';
-import TextField from '../commonComponent/TextField';
 import Button from '../commonComponent/Button';
 import { mobileAndTabletCheck } from '../utils';
 import InputWithLabel from '../commonComponent/InputWithLabel';
 import Checkbox from '@mui/material/Checkbox';
-// import CircleChecked from '@material-ui/icons/CheckCircleOutline';
-// import {CircleChecked,CircleUnchecked} from '@material-ui/icons';
-// import CircleUnchecked from '@material-ui/icons/RadioButtonUnchecked';
+import { RadioButtonUnchecked, CheckCircle } from '@material-ui/icons';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
@@ -75,12 +72,20 @@ const Login = () => {
                                         <InputWithLabel />
                                     </Box>
                                     <Box>
-                                        {/* <Checkbox
+                                        <Typography
+                                            sx={{
+                                                color: '#979797',
+                                                fontSize: '18px',
+                                            }}
+                                            className="text-end"
+                                            text="المرور"
+                                        />
+                                        <Checkbox
                                             {...label}
                                             defaultChecked
-                                            icon={<CircleUnchecked />}
-                                            checkedIcon={<CircleChecked />}
-                                        /> */}
+                                            icon={<RadioButtonUnchecked />}
+                                            checkedIcon={<CheckCircle />}
+                                        />
                                     </Box>
                                     <Button sx={{ background: '#AE965A !important', mt: 3, color: 'white' }} rounded>ارسال </Button>
                                     <Typography
@@ -133,7 +138,7 @@ const Login = () => {
                 :
                 <>
                     <Box className='h-100 d-flex align-items-center justify-content-center' sx={{ backgroundImage: `url(${HammerImg})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
-                        <Box className='h-100' sx={{ maxHeight: '400px', maxWidth: '300px', margin: '0 auto', backgroundColor: '#F5F1EE' ,borderRadius:'20px'}}>
+                        <Box className='h-100' sx={{ maxHeight: '400px', maxWidth: '300px', margin: '0 auto', backgroundColor: '#F5F1EE', borderRadius: '20px' }}>
                             <Container
                                 sx={{
                                     gap: '10px',
@@ -170,13 +175,21 @@ const Login = () => {
                                         />
                                         <InputWithLabel />
                                     </Box>
-                                    <Box>
-                                        {/* <Checkbox
+                                    <Box className='d-flex align-items-center justify-content-end'>
+                                        <Typography
+                                            sx={{
+                                                color: '#979797',
+                                                fontSize: '18px',
+                                            }}
+                                            className="text-end"
+                                            text="المرور"
+                                        />
+                                        <Checkbox
                                             {...label}
                                             defaultChecked
-                                            icon={<CircleUnchecked />}
-                                            checkedIcon={<CircleChecked />}
-                                        /> */}
+                                            icon={<RadioButtonUnchecked />}
+                                            checkedIcon={<CheckCircle />}
+                                        />
                                     </Box>
                                     <Button sx={{ background: '#AE965A !important', mt: 3, color: 'white' }} rounded>ارسال </Button>
                                     <Typography

@@ -39,6 +39,10 @@
     }
 }
 
+.color-red {
+    color:#FC0D1B !important;
+}
+
 .light-yellow {
     color: #AE965A !important;
 }
