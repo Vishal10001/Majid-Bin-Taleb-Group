@@ -40,9 +40,13 @@
 }
 
 .color-red {
-    color:#FC0D1B !important;
+    color: #FC0D1B !important;
 }
 
 .light-yellow {
     color: #AE965A !important;
+}
+
+.fw-600 {
+    font-weight: 600;
 }

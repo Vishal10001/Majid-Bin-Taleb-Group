@@ -21,10 +21,10 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const isMobile = mobileAndTabletCheck();
+const sampleText = `ليس لديك حساب؟ <span class='light-yellow fw-600'> سجل الآن</span> `;
 
-const sampleText = `<span class='light-yellow'>تواصل </span>معنا الآن عبرتساب `;
-console.log("isMobile", isMobile)
 const Login = () => {
+    console.log('isMobile------------>', isMobile);
     return (
         <>
             {!isMobile ?
@@ -39,58 +39,65 @@ const Login = () => {
                             }}
                             className='flex-column'
                         >
-                            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
-                                <Grid item xs={4} sm={6} md={6}>
+                            <Grid container className="justify-content-around" spacing={{ xs: 2, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
+                                <Grid item xs={6} sm={5} md={4.5}>
                                     <img src={HammerImg} alt="" className='h-100 w-100' style={{ borderBottomRightRadius: '40px' }} />
                                 </Grid>
-                                <Grid className='gap-3 d-flex flex-column' item xs={4} sm={6} md={6}>
+                                <Grid className='gap-3 d-flex flex-column' item xs={6} sm={5} md={4.5}>
                                     <Box className='d-flex flex-column align-items-end justify-content-between gap-4'>
                                         <Typography
                                             sx={{
                                                 color: '#39281F',
-                                                fontSize: '25px',
+                                                fontSize: '22px',
+                                                fontWeight: 400
                                             }}
+                                            className="text-end"
                                             dangerouslySetInnerHTML={{ __html: sampleText }}
                                         />
-                                        <InputWithLabel />
+                                        <InputWithLabel required label="رقم الهوية / الإقامة" />
                                     </Box>
                                     <Box className='d-flex flex-column align-items-end justify-content-between gap-2' mt={3}>
                                         <Typography
                                             sx={{
                                                 color: '#39281F',
-                                                fontSize: '25px',
+                                                fontWeight: 600,
+                                                fontSize: '23px',
                                             }}
-                                            text="تواصل معنا الآن عبر الواتساب "
+                                            className="text-end"
+                                            text="اهلاً بعودتك حضرة المحامي أ. احمد المحمد"
                                         />
-                                        <Typography
-                                            sx={{
-                                                color: '#979797',
-                                                fontSize: '20px',
-                                            }}
-                                            text="تواصل معنا "
-                                        />
-                                        <InputWithLabel />
-                                    </Box>
-                                    <Box>
                                         <Typography
                                             sx={{
                                                 color: '#979797',
                                                 fontSize: '18px',
                                             }}
                                             className="text-end"
-                                            text="المرور"
+                                            text="يرجى ادخال كلمة المرور  "
+                                        />
+                                        <InputWithLabel type='password' required label='كلمة المرور' />
+                                    </Box>
+                                    <Box className='d-flex align-items-center justify-content-end'>
+                                        <Typography
+                                            sx={{
+                                                color: '#000000',
+                                                fontSize: '18px',
+                                            }}
+                                            className="text-end"
+                                            text="تذكرني "
                                         />
                                         <Checkbox
                                             {...label}
                                             defaultChecked
-                                            icon={<RadioButtonUnchecked />}
-                                            checkedIcon={<CheckCircle />}
+                                            icon={<RadioButtonUnchecked style={{ color: '#ae965abf', fill: '#ae965abf' }} />}
+                                            checkedIcon={<CheckCircle style={{ color: '#ae965abf', fill: '#ae965abf' }} />}
                                         />
                                     </Box>
-                                    <Button sx={{ background: '#AE965A !important', mt: 3, color: 'white' }} rounded>ارسال </Button>
+                                    <Box className='d-flex align-items-center justify-content-end'>
+                                        <Button sx={{ background: '#AE965A !important', mt: 3, color: 'white !important', maxWidth: '240px' }} rounded>تسجيل الدخول </Button>
+                                    </Box>
                                     <Typography
                                         sx={{
-                                            color: '#979797',
+                                            color: '#AE965A',
                                             fontSize: '18px',
                                         }}
                                         className="text-end"
@@ -112,11 +119,13 @@ const Login = () => {
                                     borderStyle: 'solid',
                                     borderColor: 'transparent transparent transparent white',
                                 }} />
-                                <Typography sx={(theme) => ({
-                                    color: theme.palette.primary.main,
-                                    fontSize: '14px',
-                                    fontWeight: 500
-                                })} text='تواصل معنا الآن عبر الواتساب ' />
+                                <Typography
+                                    className="text-end"
+                                    sx={(theme) => ({
+                                        color: theme.palette.primary.main,
+                                        fontSize: '14px',
+                                        fontWeight: 500
+                                    })} text='تواصل معنا الآن عبر الواتساب ' />
                             </Box>
                             <Box sx={{ maxWidth: '40px', maxHeight: '40px' }}>
                                 <img src={whatsappIcon} alt='' className="h-100 w-100" />
@@ -138,7 +147,7 @@ const Login = () => {
                 :
                 <>
                     <Box className='h-100 d-flex align-items-center justify-content-center' sx={{ backgroundImage: `url(${HammerImg})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
-                        <Box className='h-100' sx={{ maxHeight: '400px', maxWidth: '300px', margin: '0 auto', backgroundColor: '#F5F1EE', borderRadius: '20px' }}>
+                        <Box className='h-100' py={1.5} sx={{ maxHeight: '500px', maxWidth: '345px', margin: '0 auto', backgroundColor: '#F5F1EE', borderRadius: '20px' }}>
                             <Container
                                 sx={{
                                     gap: '10px',
@@ -154,9 +163,10 @@ const Login = () => {
                                                 color: '#39281F',
                                                 fontSize: '20px',
                                             }}
+                                            className="text-end"
                                             dangerouslySetInnerHTML={{ __html: sampleText }}
                                         />
-                                        <InputWithLabel />
+                                        <InputWithLabel required label="رقم الهوية / الإقامة" />
                                     </Box>
                                     <Box className='d-flex flex-column align-items-end justify-content-between gap-2' mt={3}>
                                         <Typography
@@ -164,39 +174,42 @@ const Login = () => {
                                                 color: '#39281F',
                                                 fontSize: '20px',
                                             }}
-                                            text="تواصل معنا الآن عبر الواتساب "
+                                            className="text-end"
+                                            text="اهلاً بعودتك حضرة المحامي أ. احمد المحمد"
                                         />
-                                        <Typography
-                                            sx={{
-                                                color: '#979797',
-                                                fontSize: '18px',
-                                            }}
-                                            text="تواصل معنا "
-                                        />
-                                        <InputWithLabel />
-                                    </Box>
-                                    <Box className='d-flex align-items-center justify-content-end'>
                                         <Typography
                                             sx={{
                                                 color: '#979797',
                                                 fontSize: '18px',
                                             }}
                                             className="text-end"
-                                            text="المرور"
+                                            text="يرجى ادخال كلمة المرور  "
+                                        />
+                                        <InputWithLabel type='password' required label='كلمة المرور' />
+                                    </Box>
+                                    <Box className='d-flex align-items-center justify-content-end'>
+                                        <Typography
+                                            sx={{
+                                                color: '#000000',
+                                                fontSize: '18px',
+                                            }}
+                                            className="text-end"
+                                            text="تذكرني "
                                         />
                                         <Checkbox
                                             {...label}
                                             defaultChecked
-                                            icon={<RadioButtonUnchecked />}
-                                            checkedIcon={<CheckCircle />}
+                                            icon={<RadioButtonUnchecked style={{ color: '#ae965abf', fill: '#ae965abf' }} />}
+                                            checkedIcon={<CheckCircle style={{ color: '#ae965abf', fill: '#ae965abf' }} />}
                                         />
                                     </Box>
-                                    <Button sx={{ background: '#AE965A !important', mt: 3, color: 'white' }} rounded>ارسال </Button>
+                                    <Button sx={{ background: '#AE965A !important', mt: 3, color: 'white' }} rounded>تسجيل الدخول  </Button>
                                     <Typography
                                         sx={{
                                             color: '#979797',
                                             fontSize: '18px',
                                         }}
+                                        className="text-end"
                                         text="هل نسيت كلمة المرور؟"
                                     />
                                 </Box>
