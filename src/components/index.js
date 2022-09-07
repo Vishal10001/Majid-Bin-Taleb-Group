@@ -5,6 +5,9 @@ import HomeDemo from "./HomeDemo";
 import ContactUs from "./ContactUs";
 import PracticeAreas from "./PracticeAreas";
 import AddAccount from "./AddAccount";
+import ResetPassword from "./ResetPassword";
+import ResetPasswordSecond from "./ResetPasswordSecond";
+import SignUp from "./SignUp";
 
 export {
     Home,
@@ -13,5 +16,8 @@ export {
     ContactUs,
     Login,
     PracticeAreas,
-    AddAccount
+    AddAccount,
+    ResetPassword,
+    SignUp,
+    ResetPasswordSecond,
 };

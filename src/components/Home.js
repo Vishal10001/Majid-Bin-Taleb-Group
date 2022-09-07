@@ -45,82 +45,73 @@ const Home = () => {
     const isMobile = mobileAndTabletCheck();
     return (
         <Box sx={{ backgroundImage: `url(${diamond})` }}>
-            <Container
-                maxWidth='xl'
-                sx={{
-                    gap: '10px',
-                    display: 'flex',
-                    height: 'auto',
-                }}
-                className='flex-column'
-            >
-                <Box className='d-flex' sx={{ mt: '120px', flexDirection: isMobile ? 'column' : 'row' }}>
-                    <Box sx={{ borderTopRightRadius: '31% 50%', overflow: 'hidden', width: '100%', order: isMobile ? 1 : 0 }}>
-                        <img src={HammerImg} alt='' />
+
+            <Box className='d-flex' sx={{ mt: '120px', flexDirection: isMobile ? 'column' : 'row', gap: isMobile ? '15px' : 0 }}>
+                <Box sx={{ borderTopRightRadius: '270px 282px', overflow: 'hidden', width: '100%', order: isMobile ? 1 : 0, mt: isMobile ? 2 : 0 }}>
+                    <img src={HammerImg} alt='' />
+                </Box>
+                <Box className='d-flex flex-wrap flex-column' pr={2} sx={{ order: isMobile ? 0 : 1 }}>
+                    <Box>
+                        <Typography className='text-end'
+                            sx={{
+                                fontSize: '50px',
+                                fontWeight: 900,
+                                color: '#39281F'
+                            }}
+                            text='مجموعة ماجد بن طالب للمحاماة والاستشارات القانونية' />
+                        <Typography
+                            className='text-end'
+                            sx={{
+                                fontSize: '30px',
+                                mt: 2
+                            }}
+                            dangerouslySetInnerHTML={{ __html: sampleText }}
+                        />
                     </Box>
-                    <Box className='d-flex flex-wrap flex-column' sx={{ order: isMobile ? 0 : 1 }}>
-                        <Box>
-                            <Typography className='text-end'
-                                sx={{
-                                    fontSize: '50px',
-                                    fontWeight: 900,
-                                    color: '#39281F'
-                                }}
-                                text='مجموعة ماجد بن طالب للمحاماة والاستشارات القانونية' />
-                            <Typography
-                                className='text-end'
-                                sx={{
-                                    fontSize: '30px',
-                                    mt: 2
-                                }}
-                                dangerouslySetInnerHTML={{ __html: sampleText }}
-                            />
+                    <Box sx={{ mt: 7 }} className='d-flex align-items-center justify-content-end'>
+                        <Button size='small' rounded sx={(theme) => ({
+                            maxHeight: '50px',
+                            height: '100%',
+                            backgroundColor: theme.palette.secondary.main,
+                            color: theme.palette.white[100],
+                            lineHeight: '41px'
+                        })}>
+                            اطلب استشارتك الآن
+                        </Button>
+                    </Box>
+                </Box>
+            </Box>
+            <Box className='d-flex flex-wrap align-items-center justify-content-center' mt='-30px'>
+                <Box sx={{ backgroundColor: '#39281F', borderRadius: 1.5 }}
+                    className='d-flex flex-wrap align-items-center' px={4}
+                    py={3}>
+                    <Box px={5} className='d-flex align-items-center' sx={{ borderRight: '1px solid #fff' }}>
+                        <Typography sx={(theme) => ({ fontSize: '40px', color: theme.palette.white[100], mr: 1 })}
+                            text='عميل 30+' />
+                        <Box sx={{ height: '40px', width: '40px' }}>
+                            <img className='h-100 w-100' src={scalesImg} alt='' />
                         </Box>
-                        <Box sx={{ mt: 7 }} className='d-flex align-items-center justify-content-end'>
-                            <Button size='small' rounded sx={(theme) => ({
-                                maxHeight: '50px',
-                                height: '100%',
-                                backgroundColor: theme.palette.secondary.main,
-                                color: theme.palette.white[100],
-                                lineHeight: '41px'
-                            })}>
-                                اطلب استشارتك الآن
-                            </Button>
+                    </Box>
+                    <Box px={5} className='d-flex align-items-center'>
+                        <Typography sx={(theme) => ({ fontSize: '40px', color: theme.palette.white[100], mr: 1 })}
+                            text='قضية 30+' />
+                        <Box sx={{ height: '40px', width: '40px' }}>
+                            <img className='h-100 w-100' src={groupImg} alt='' />
                         </Box>
                     </Box>
                 </Box>
-                <Box className='d-flex flex-wrap align-items-center justify-content-center' mt='-30px'>
-                    <Box sx={{ backgroundColor: '#39281F', borderRadius: 1.5 }}
-                        className='d-flex flex-wrap align-items-center' px={4}
-                        py={3}>
-                        <Box px={5} className='d-flex align-items-center' sx={{ borderRight: '1px solid #fff' }}>
-                            <Typography sx={(theme) => ({ fontSize: '40px', color: theme.palette.white[100], mr: 1 })}
-                                text='عميل 30+' />
-                            <Box sx={{ height: '40px', width: '40px' }}>
-                                <img className='h-100 w-100' src={scalesImg} alt='' />
-                            </Box>
-                        </Box>
-                        <Box px={5} className='d-flex align-items-center'>
-                            <Typography sx={(theme) => ({ fontSize: '40px', color: theme.palette.white[100], mr: 1 })}
-                                text='قضية 30+' />
-                            <Box sx={{ height: '40px', width: '40px' }}>
-                                <img className='h-100 w-100' src={groupImg} alt='' />
-                            </Box>
-                        </Box>
-                    </Box>
+            </Box>
+            <Box className='d-flex flex-wrap align-items-center justify-content-center' mt={1}>
+                <Box sx={(theme) => ({
+                    backgroundColor: theme.palette.secondary.main,
+                    borderRadius: 5,
+                    cursor: 'pointer'
+                })} px={0.5}
+                    pt={2.5} pb={0.5}
+                >
+                    <ExpandMoreIcon sx={{ fill: 'white' }} />
                 </Box>
-                <Box className='d-flex flex-wrap align-items-center justify-content-center' mt={1}>
-                    <Box sx={(theme) => ({
-                        backgroundColor: theme.palette.secondary.main,
-                        borderRadius: 5,
-                        cursor: 'pointer'
-                    })} px={0.5}
-                        pt={2.5} pb={0.5}
-                    >
-                        <ExpandMoreIcon sx={{ fill: 'white' }} />
-                    </Box>
-                </Box>
-            </Container >
+            </Box>
             <Box sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderTopRightRadius: '140px' })}>
                 <Container
                     sx={{

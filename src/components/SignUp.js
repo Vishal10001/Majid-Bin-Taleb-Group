@@ -21,14 +21,14 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const isMobile = mobileAndTabletCheck();
-const sampleText = `ليس لديك حساب؟ <span class='light-yellow fw-600'> سجل الآن</span> `;
+const sampleText = `هل لديك حساب ؟ <span class='light-yellow fw-600'>تسجيل الدخول </spam>`;
 
-const Login = () => {
+const SignUp = () => {
     return (
         <>
             {!isMobile ?
                 <Box sx={{ backgroundImage: `url(${diamond})` }}>
-                    <Box mt={10}>
+                    <Box mt={15}>
                         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
                             <Grid item xs={12} sm={5} md={4.5}>
                                 <img src={HammerImg} alt="" className='h-100 w-100' style={{ borderBottomRightRadius: '40px' }} />
@@ -39,61 +39,44 @@ const Login = () => {
                                     <Typography
                                         sx={{
                                             color: '#39281F',
-                                            fontSize: '22px',
-                                            fontWeight: 400
+                                            fontSize: '19px',
+                                            fontWeight: 400,
+                                            mt: '-20px'
                                         }}
                                         className="text-end"
                                         dangerouslySetInnerHTML={{ __html: sampleText }}
                                     />
-                                    <InputWithLabel required label="رقم الهوية / الإقامة" />
-                                </Box>
-                                <Box className='d-flex flex-column align-items-end justify-content-between gap-2' mt={3}>
                                     <Typography
                                         sx={{
                                             color: '#39281F',
+                                            fontSize: '24px',
                                             fontWeight: 600,
-                                            fontSize: '23px',
+                                            mt: 4
                                         }}
                                         className="text-end"
-                                        text="اهلاً بعودتك حضرة المحامي أ. احمد المحمد"
+                                        text="انشاء حساب جديد"
                                     />
+                                </Box>
+                                <Box className='d-flex flex-column align-items-end justify-content-between gap-2' mt={3}>
+                                    <InputWithLabel sx={{ mt: 2 }} required label='الاسم الثلاثي ' />
+                                    <InputWithLabel sx={{ mt: 2 }} required label='رقم الهاتف ' />
+                                    <InputWithLabel sx={{ mt: 2 }} required label='البريد الإلكتروني ' />
+                                    <InputWithLabel sx={{ mt: 2 }} required label='رقم الهوية / الإقامة ' />
+                                    <InputWithLabel sx={{ mt: 2 }} required label='كلمة السر ' />
+                                    <InputWithLabel sx={{ mt: 2 }} required label='إعادة كلمة السر  ' />
+                                </Box>
+                                <Box className='d-flex flex-column gap-4 align-items-end justify-content-end'>
+                                    <Button className="w-100" sx={{ background: '#AE965A !important', mt: 3, color: 'white !important' }} rounded>التالي </Button>
                                     <Typography
                                         sx={{
-                                            color: '#979797',
+                                            color: '#AE965A',
                                             fontSize: '18px',
+                                            fontWeight: 600
                                         }}
                                         className="text-end"
-                                        text="يرجى ادخال كلمة المرور  "
-                                    />
-                                    <InputWithLabel sx={{ mt: 2 }} type='password' required label='كلمة المرور' />
-                                </Box>
-                                <Box className='d-flex align-items-center justify-content-end'>
-                                    <Typography
-                                        sx={{
-                                            color: '#000000',
-                                            fontSize: '18px',
-                                        }}
-                                        className="text-end"
-                                        text="تذكرني "
-                                    />
-                                    <Checkbox
-                                        {...label}
-                                        defaultChecked
-                                        icon={<RadioButtonUnchecked style={{ color: '#ae965abf', fill: '#ae965abf' }} />}
-                                        checkedIcon={<CheckCircle style={{ color: '#ae965abf', fill: '#ae965abf' }} />}
+                                        text="العودة"
                                     />
                                 </Box>
-                                <Box className='d-flex align-items-center justify-content-end'>
-                                    <Button className="w-100" sx={{ background: '#AE965A !important', mt: 3, color: 'white !important' }} rounded>تسجيل الدخول </Button>
-                                </Box>
-                                <Typography
-                                    sx={{
-                                        color: '#AE965A',
-                                        fontSize: '18px',
-                                    }}
-                                    className="text-end"
-                                    text="هل نسيت كلمة المرور؟"
-                                />
                             </Grid>
                             <Grid item xs={0} sm={1} md={1} />
                         </Grid>
@@ -223,4 +206,4 @@ const Login = () => {
         </>
     )
 };
-export default Login;
+export default SignUp;

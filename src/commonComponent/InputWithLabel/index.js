@@ -4,10 +4,10 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 
 const InputWithLabel = (props) => {
-    const { label, required, type = 'text' } = props;
+    const { label, required, type = 'text', sx, restProps } = props;
     return (
-        <Box className=' w-100' px={2} py={1} sx={{ borderBottomRightRadius: '30px', background: 'white' }}>
-            <InputLabel sx={{ fontSize: '0.8rem' }} className='text-end' htmlFor="component-simple">
+        <Box className=' w-100' {...restProps} px={2} pt={1} sx={{ borderBottomRightRadius: '30px', background: 'white', ...sx }}>
+            <InputLabel sx={{ fontSize: '0.8rem', color: '#AE965A' }} className='text-end' htmlFor="component-simple">
                 {required && <span className='color-red'>*</span>}
                 {label}
             </InputLabel>

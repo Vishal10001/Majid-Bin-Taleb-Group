@@ -68,7 +68,7 @@ const ContactUs = () => {
                                     rows={4}
                                     defaultValue="Default Value"
                                 />
-                                <Button sx={{ background: '#AE965A !important', mt: 3 }} rounded>ارسال </Button>
+                                <Button sx={{ background: '#AE965A !important', mt: 3, color: 'white !important' }} rounded>ارسال </Button>
                             </Grid>
                         </Grid>
                     </Container>
