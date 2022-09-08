@@ -8,7 +8,8 @@ import {
   PracticeAreas,
   AddPhoneNum,
   AddAccount, ResetPassword, ResetPasswordSecond, SignUp, CompanySignUp,
-  PhoneVerification
+  PhoneVerification,
+  AboutUs
 } from "./components";
 
 const ProjectRoutes = () => {
@@ -20,6 +21,7 @@ const ProjectRoutes = () => {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/company-sign-up" element={<CompanySignUp />} />
         <Route path="/artical" element={<Artical />} />
+        <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/practice-areas" element={<PracticeAreas />} />
         <Route path="/add-account" element={<AddAccount />} />

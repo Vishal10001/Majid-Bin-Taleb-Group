@@ -11,6 +11,7 @@ import SignUp from "./SignUp";
 import CompanySignUp from "./CompanySignUp";
 import PhoneVerification from "./PhoneVerification";
 import AddPhoneNum from "./AddPhoneNum";
+import AboutUs from "./AboutUs";
 
 export {
     Home,
@@ -25,5 +26,6 @@ export {
     ResetPasswordSecond,
     CompanySignUp,
     PhoneVerification,
-    AddPhoneNum
+    AddPhoneNum,
+    AboutUs
 };
