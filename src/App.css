@@ -47,27 +47,10 @@
     color: #AE965A !important;
 }
 
+.light-grey {
+    color: #979797 !important;
+}
+
 .fw-600 {
     font-weight: 600;
 }
-
-.otp-input {
-    min-height: '100px';
-    max-height: '110px';
-    max-width: '85px';
-    height: '100%';
-    width: '100%';
-    border-radius: '20px';
-    box-shadow: '0px 2px 12px 0px #0000001A';
-    border: 0;
-    outline: 'none';
-}
-
-.MuiTextField-root:focus {
-    background: red;
-}
-
-/* // box-shadow: 0px 2px 12px 0px #0000001A inset;
-        // ':active': {
-        //     background: 'blue'
-        // } */

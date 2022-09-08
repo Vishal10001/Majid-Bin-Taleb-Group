@@ -21,14 +21,14 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const isMobile = mobileAndTabletCheck();
-const sampleText = `هل لديك حساب ؟ <span class='light-yellow fw-600'>تسجيل الدخول </spam>`;
+const sampleText = `ليس لديك حساب؟ <span class='light-yellow fw-600'> سجل الآن</span> `;
 
-const SignUp = () => {
+const AddPhoneNum = () => {
     return (
         <>
             {!isMobile ?
                 <Box sx={{ backgroundImage: `url(${diamond})` }}>
-                    <Box mt={15}>
+                    <Box mt={10}>
                         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
                             <Grid item xs={12} sm={5} md={4.5}>
                                 <img src={HammerImg} alt="" className='h-100 w-100' style={{ borderBottomRightRadius: '40px' }} />
@@ -39,9 +39,8 @@ const SignUp = () => {
                                     <Typography
                                         sx={{
                                             color: '#39281F',
-                                            fontSize: '19px',
+                                            fontSize: '18px',
                                             fontWeight: 400,
-                                            mt: '-20px'
                                         }}
                                         className="text-end"
                                         dangerouslySetInnerHTML={{ __html: sampleText }}
@@ -50,33 +49,38 @@ const SignUp = () => {
                                         sx={{
                                             color: '#39281F',
                                             fontSize: '24px',
-                                            fontWeight: 600,
+                                            fontWeight: 700,
+                                            mt: 4
+                                        }}
+                                        className="text-end"
+                                        text="انشاء حساب جديد"
+                                    />
+                                    <Typography
+                                        sx={{
+                                            color: '#979797',
+                                            fontSize: '18px',
+                                            fontWeight: 400,
                                             mt: 4
                                         }}
                                         className="text-end"
                                         text="انشاء حساب جديد"
                                     />
                                 </Box>
-                                <Box className='d-flex flex-column align-items-end justify-content-between gap-2' mt={3}>
-                                    <InputWithLabel sx={{ mt: 2 }} required label='الاسم الثلاثي ' />
-                                    <InputWithLabel sx={{ mt: 2 }} required label='رقم الهاتف ' />
-                                    <InputWithLabel sx={{ mt: 2 }} required label='البريد الإلكتروني ' />
-                                    <InputWithLabel sx={{ mt: 2 }} required label='رقم الهوية / الإقامة ' />
-                                    <InputWithLabel sx={{ mt: 2 }} required label='كلمة السر ' />
-                                    <InputWithLabel sx={{ mt: 2 }} required label='إعادة كلمة السر  ' />
+                                <Box className='d-flex flex-column align-items-end justify-content-between' mt={2}>
+                                    <InputWithLabel required label="رقم الهوية / الإقامة" />
                                 </Box>
-                                <Box className='d-flex flex-column gap-4 align-items-end justify-content-end'>
-                                    <Button className="w-100" sx={{ background: '#AE965A !important', mt: 3, color: 'white !important' }} rounded>التالي </Button>
-                                    <Typography
-                                        sx={{
-                                            color: '#AE965A',
-                                            fontSize: '18px',
-                                            fontWeight: 600
-                                        }}
-                                        className="text-end"
-                                        text="العودة"
-                                    />
+                                <Box className='d-flex align-items-center justify-content-end' mt={3}>
+                                    <Button className="w-100" sx={{ background: '#AE965A !important', mt: 3, color: 'white !important' }} rounded>تسجيل الدخول </Button>
                                 </Box>
+                                <Typography
+                                    sx={{
+                                        color: '#AE965A',
+                                        fontSize: '18px',
+                                        fontWeight: 700,
+                                    }}
+                                    className="text-end"
+                                    text="العودة"
+                                />
                             </Grid>
                             <Grid item xs={0} sm={1} md={1} />
                         </Grid>
@@ -121,44 +125,45 @@ const SignUp = () => {
                 :
                 <>
                     <Box className='h-100 d-flex align-items-center justify-content-center' sx={{ backgroundImage: `url(${HammerImg})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
-                        <Box className='h-100 w-100' py={1.5} sx={{ maxHeight: '700px', maxWidth: '500px', margin: '0 auto', backgroundColor: '#F5F1EE', borderRadius: '20px' }}>
+                        <Box className='h-100' py={1.5} sx={{ maxHeight: '500px', maxWidth: '400px', margin: '0 auto', backgroundColor: '#F5F1EE', borderRadius: '20px' }}>
                             <Container
                                 sx={{
-                                    gap: '5px',
+                                    gap: '10px',
                                     display: 'flex',
                                     height: 'auto',
                                 }}
                                 className='flex-column'
                             >
                                 <Box className="d-flex flex-column">
-                                    <Box className='d-flex flex-column align-items-end justify-content-between gap-1'>
+                                    <Box className='d-flex flex-column align-items-end justify-content-between gap-4'>
                                         <Typography
                                             sx={{
                                                 color: '#39281F',
-                                                fontSize: '17px',
-                                                fontWeight: 400,
+                                                fontSize: '20px',
                                             }}
                                             className="text-end"
                                             dangerouslySetInnerHTML={{ __html: sampleText }}
                                         />
+                                        <InputWithLabel required label="رقم الهوية / الإقامة" />
+                                    </Box>
+                                    <Box className='d-flex flex-column align-items-end justify-content-between gap-2' mt={3}>
                                         <Typography
                                             sx={{
                                                 color: '#39281F',
-                                                fontSize: '22px',
-                                                fontWeight: 600,
-                                                mt: 2
+                                                fontSize: '20px',
                                             }}
                                             className="text-end"
-                                            text="انشاء حساب جديد"
+                                            text="اهلاً بعودتك حضرة المحامي أ. احمد المحمد"
                                         />
-                                    </Box>
-                                    <Box className='d-flex flex-column align-items-end justify-content-between gap-2' mt={3}>
-                                        <InputWithLabel sx={{ mt: 1, pt: 0.5 }} required label='الاسم الثلاثي ' />
-                                        <InputWithLabel sx={{ mt: 1, pt: 0.5 }} required label='رقم الهاتف ' />
-                                        <InputWithLabel sx={{ mt: 1, pt: 0.5 }} required label='البريد الإلكتروني ' />
-                                        <InputWithLabel sx={{ mt: 1, pt: 0.5 }} required label='رقم الهوية / الإقامة ' />
-                                        <InputWithLabel sx={{ mt: 1, pt: 0.5 }} required label='كلمة السر ' />
-                                        <InputWithLabel sx={{ mt: 1, pt: 0.5 }} required label='إعادة كلمة السر  ' />
+                                        <Typography
+                                            sx={{
+                                                color: '#979797',
+                                                fontSize: '18px',
+                                            }}
+                                            className="text-end"
+                                            text="يرجى ادخال كلمة المرور  "
+                                        />
+                                        <InputWithLabel type='password' required label='كلمة المرور' />
                                     </Box>
                                     <Box className='d-flex align-items-center justify-content-end'>
                                         <Typography
@@ -205,4 +210,4 @@ const SignUp = () => {
         </>
     )
 };
-export default SignUp;
+export default AddPhoneNum;

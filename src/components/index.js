@@ -8,6 +8,9 @@ import AddAccount from "./AddAccount";
 import ResetPassword from "./ResetPassword";
 import ResetPasswordSecond from "./ResetPasswordSecond";
 import SignUp from "./SignUp";
+import CompanySignUp from "./CompanySignUp";
+import PhoneVerification from "./PhoneVerification";
+import AddPhoneNum from "./AddPhoneNum";
 
 export {
     Home,
@@ -20,4 +23,7 @@ export {
     ResetPassword,
     SignUp,
     ResetPasswordSecond,
+    CompanySignUp,
+    PhoneVerification,
+    AddPhoneNum
 };

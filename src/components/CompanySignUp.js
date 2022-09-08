@@ -23,7 +23,7 @@ const Item = styled(Paper)(({ theme }) => ({
 const isMobile = mobileAndTabletCheck();
 const sampleText = `هل لديك حساب ؟ <span class='light-yellow fw-600'>تسجيل الدخول </spam>`;
 
-const SignUp = () => {
+const CompanySignUp = () => {
     return (
         <>
             {!isMobile ?
@@ -58,10 +58,10 @@ const SignUp = () => {
                                     />
                                 </Box>
                                 <Box className='d-flex flex-column align-items-end justify-content-between gap-2' mt={3}>
-                                    <InputWithLabel sx={{ mt: 2 }} required label='الاسم الثلاثي ' />
+                                    <InputWithLabel sx={{ mt: 2 }} required label='اسم الشركة / المؤسسة  ' />
                                     <InputWithLabel sx={{ mt: 2 }} required label='رقم الهاتف ' />
                                     <InputWithLabel sx={{ mt: 2 }} required label='البريد الإلكتروني ' />
-                                    <InputWithLabel sx={{ mt: 2 }} required label='رقم الهوية / الإقامة ' />
+                                    <InputWithLabel sx={{ mt: 2 }} required label='رقم السجل التجاري  ' />
                                     <InputWithLabel sx={{ mt: 2 }} required label='كلمة السر ' />
                                     <InputWithLabel sx={{ mt: 2 }} required label='إعادة كلمة السر  ' />
                                 </Box>
@@ -153,10 +153,10 @@ const SignUp = () => {
                                         />
                                     </Box>
                                     <Box className='d-flex flex-column align-items-end justify-content-between gap-2' mt={3}>
-                                        <InputWithLabel sx={{ mt: 1, pt: 0.5 }} required label='الاسم الثلاثي ' />
+                                        <InputWithLabel sx={{ mt: 1, pt: 0.5 }} required label='اسم الشركة / المؤسسة  ' />
                                         <InputWithLabel sx={{ mt: 1, pt: 0.5 }} required label='رقم الهاتف ' />
                                         <InputWithLabel sx={{ mt: 1, pt: 0.5 }} required label='البريد الإلكتروني ' />
-                                        <InputWithLabel sx={{ mt: 1, pt: 0.5 }} required label='رقم الهوية / الإقامة ' />
+                                        <InputWithLabel sx={{ mt: 1, pt: 0.5 }} required label='رقم السجل التجاري  ' />
                                         <InputWithLabel sx={{ mt: 1, pt: 0.5 }} required label='كلمة السر ' />
                                         <InputWithLabel sx={{ mt: 1, pt: 0.5 }} required label='إعادة كلمة السر  ' />
                                     </Box>
@@ -205,4 +205,4 @@ const SignUp = () => {
         </>
     )
 };
-export default SignUp;
+export default CompanySignUp;

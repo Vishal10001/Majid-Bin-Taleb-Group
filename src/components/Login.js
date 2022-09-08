@@ -138,7 +138,7 @@ const Login = () => {
                 :
                 <>
                     <Box className='h-100 d-flex align-items-center justify-content-center' sx={{ backgroundImage: `url(${HammerImg})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
-                        <Box className='h-100' py={1.5} sx={{ maxHeight: '500px', maxWidth: '345px', margin: '0 auto', backgroundColor: '#F5F1EE', borderRadius: '20px' }}>
+                        <Box className='h-100' py={1.5} sx={{ maxHeight: '500px', maxWidth: '400px', margin: '0 auto', backgroundColor: '#F5F1EE', borderRadius: '20px' }}>
                             <Container
                                 sx={{
                                     gap: '10px',
