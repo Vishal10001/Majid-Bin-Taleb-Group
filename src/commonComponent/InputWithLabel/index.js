@@ -1,5 +1,5 @@
 import { Box, FormControl, InputLabel, Input } from '@mui/material';
-import { Visibility, VisibilityOff } from '@material-ui/icons';
+import { VisibilityOff } from '@material-ui/icons';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 

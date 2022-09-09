@@ -3,7 +3,6 @@ import {Box, AppBar, Container} from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 import Button from "../Button";
-import searchIcon from '../../assets/searchIcon.svg';
 import headerLogo from '../../assets/headerLogo.svg';
 import {navList} from "../../utils";
 

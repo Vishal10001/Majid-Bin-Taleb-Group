@@ -12,6 +12,8 @@ import CompanySignUp from "./CompanySignUp";
 import PhoneVerification from "./PhoneVerification";
 import AddPhoneNum from "./AddPhoneNum";
 import AboutUs from "./AboutUs";
+import Blog from "./Blog";
+import Consultation from "./Consultation";
 
 export {
     Home,
@@ -27,5 +29,7 @@ export {
     CompanySignUp,
     PhoneVerification,
     AddPhoneNum,
-    AboutUs
+    AboutUs,
+    Blog,
+    Consultation,
 };

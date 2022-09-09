@@ -6,10 +6,10 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Typography from '../Typography';
 
 const Footer = (props) => {
-    const { sx, hideContent, children } = props;
+    const { sx, hideContent, showSecondFooter, children } = props;
     return (
         <Box mt={25} sx={{ borderTop: 2, borderColor: '#AE965A', ...sx }}>
-            {/* {!hideContent ? <Container
+            {!showSecondFooter ? !hideContent ? <Container
                 maxWidth='xl'
                 sx={{
                     gap: '10px',
@@ -69,64 +69,65 @@ const Footer = (props) => {
                 >
                     {children}
                 </Container>
-            } */}
-            <Container
-                maxWidth='md'
-                sx={{
-                    gap: '10px',
-                    display: 'flex',
-                    height: 'auto',
-                }}
-                className='flex-column'
-            >
-                <Box pt={3} pb={4} mb={3}>
-                    <Box mt={3} className='d-flex align-items-start justify-content-between'>
-                        <Box className='d-flex align-items-end flex-column gap-4'>
-                            <Typography text='القائمة ' sx={{ color: '#39281F', fontSize: '23px', fontWeight: 700 }} />
-                            <Typography text='الرئيسية ' sx={{ color: '#000000', fontWeight: 400 }} />
-                            <Typography text='من نحن ' sx={{ color: '#000000', fontWeight: 400 }} />
-                            <Typography text='مجالات الممارسة  ' sx={{ color: '#000000', fontWeight: 400 }} />
-                            <Typography text='فريق العمل ' sx={{ color: '#000000', fontWeight: 400 }} />
-                            <Typography text='عملاؤنا  ' sx={{ color: '#000000', fontWeight: 400 }} />
-                            <Typography text='انضم الينا ' sx={{ color: '#000000', fontWeight: 400 }} />
-                        </Box>
-                        <Box className='d-flex align-items-center flex-column gap-4'>
-                            <Typography text='تابعنا على ' sx={{ color: '#39281F', fontSize: '23px', fontWeight: 700 }} />
-                            <Box className='d-flex gap-2'>
-                                <Twitter sx={{ fill: '#AE965A' }} />
-                                <LinkedIn sx={{ fill: '#AE965A' }} />
-                                <LocalPostOffice sx={{ fill: '#AE965A' }} />
+                :
+                <Container
+                    maxWidth='md'
+                    sx={{
+                        gap: '10px',
+                        display: 'flex',
+                        height: 'auto',
+                    }}
+                    className='flex-column'
+                >
+                    <Box pt={3} pb={4} mb={3}>
+                        <Box mt={3} className='d-flex align-items-start justify-content-between'>
+                            <Box className='d-flex align-items-end flex-column gap-4'>
+                                <Typography text='القائمة ' sx={{ color: '#39281F', fontSize: '23px', fontWeight: 700 }} />
+                                <Typography text='الرئيسية ' sx={{ color: '#000000', fontWeight: 400 }} />
+                                <Typography text='من نحن ' sx={{ color: '#000000', fontWeight: 400 }} />
+                                <Typography text='مجالات الممارسة  ' sx={{ color: '#000000', fontWeight: 400 }} />
+                                <Typography text='فريق العمل ' sx={{ color: '#000000', fontWeight: 400 }} />
+                                <Typography text='عملاؤنا  ' sx={{ color: '#000000', fontWeight: 400 }} />
+                                <Typography text='انضم الينا ' sx={{ color: '#000000', fontWeight: 400 }} />
+                            </Box>
+                            <Box className='d-flex align-items-center flex-column gap-4'>
+                                <Typography text='تابعنا على ' sx={{ color: '#39281F', fontSize: '23px', fontWeight: 700 }} />
+                                <Box className='d-flex gap-2'>
+                                    <Twitter sx={{ fill: '#AE965A' }} />
+                                    <LinkedIn sx={{ fill: '#AE965A' }} />
+                                    <LocalPostOffice sx={{ fill: '#AE965A' }} />
+                                </Box>
+                            </Box>
+                            <Box className='d-flex align-items-end flex-column gap-4'>
+                                <Typography text='العنوان ' sx={{ color: '#39281F', fontSize: '23px', fontWeight: 700 }} />
+                                <Typography text='جدة - الرياض - الدمام  ' sx={{ color: '#000000', fontWeight: 400 }} />
+                            </Box>
+                            <Box className='d-flex align-items-end flex-column gap-4'>
+                                <Typography text='ساعات العمل  ' sx={{ color: '#39281F', fontSize: '23px', fontWeight: 700 }} />
+                                <Typography text='من الاحد الى الخميس  ' sx={{ color: '#000000', fontWeight: 400 }} />
+                                <Typography text='9:00 ص - 4:00 م' sx={{ color: '#000000', fontWeight: 400 }} />
                             </Box>
                         </Box>
-                        <Box className='d-flex align-items-end flex-column gap-4'>
-                            <Typography text='العنوان ' sx={{ color: '#39281F', fontSize: '23px', fontWeight: 700 }} />
-                            <Typography text='جدة - الرياض - الدمام  ' sx={{ color: '#000000', fontWeight: 400 }} />
-                        </Box>
-                        <Box className='d-flex align-items-end flex-column gap-4'>
-                            <Typography text='ساعات العمل  ' sx={{ color: '#39281F', fontSize: '23px', fontWeight: 700 }} />
-                            <Typography text='من الاحد الى الخميس  ' sx={{ color: '#000000', fontWeight: 400 }} />
-                            <Typography text='9:00 ص - 4:00 م' sx={{ color: '#000000', fontWeight: 400 }} />
-                        </Box>
-                    </Box>
-                    <Box className='d-flex align-items-center flex-column gap-2 justify-content-center' mt={1}>
-                        <Typography
-                            mt={3}
-                            text='جميع الحقوق محفوظة لمجموعة ماجد بن طالب     2022'
-                            sx={{ color: '#000000', fontWeight: 400 }}
-                            className='text-end'
-                        />
-                        <Box sx={(theme) => ({
-                            backgroundColor: theme.palette.secondary.main,
-                            borderRadius: 5,
-                            cursor: 'pointer'
-                        })} px={0.5}
-                            pb={2.5} pt={0.5}
-                        >
-                            <KeyboardArrowUpIcon sx={{ fill: 'white' }} />
+                        <Box className='d-flex align-items-center flex-column gap-2 justify-content-center' mt={1}>
+                            <Typography
+                                mt={3}
+                                text='جميع الحقوق محفوظة لمجموعة ماجد بن طالب     2022'
+                                sx={{ color: '#000000', fontWeight: 400 }}
+                                className='text-end'
+                            />
+                            <Box sx={(theme) => ({
+                                backgroundColor: theme.palette.secondary.main,
+                                borderRadius: 5,
+                                cursor: 'pointer'
+                            })} px={0.5}
+                                pb={2.5} pt={0.5}
+                            >
+                                <KeyboardArrowUpIcon sx={{ fill: 'white' }} />
+                            </Box>
                         </Box>
                     </Box>
-                </Box>
-            </Container>
+                </Container>
+            }
         </Box>
     )
 }

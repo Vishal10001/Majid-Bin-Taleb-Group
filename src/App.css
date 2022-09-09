@@ -54,3 +54,18 @@
 .fw-600 {
     font-weight: 600;
 }
+
+.MuiPickerStaticWrapper-content {
+    border-radius: 20px;
+}
+
+.MuiCalendarPicker-root {
+    background: white;
+    border-radius: 20px;
+    color: #000000;
+}
+
+.MuiPickersDay-today {
+    background: #AE965A !important;
+    color: white !important;
+}

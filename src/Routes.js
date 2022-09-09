@@ -9,7 +9,9 @@ import {
   AddPhoneNum,
   AddAccount, ResetPassword, ResetPasswordSecond, SignUp, CompanySignUp,
   PhoneVerification,
-  AboutUs
+  AboutUs,
+  Blog,
+  Consultation
 } from "./components";
 
 const ProjectRoutes = () => {
@@ -18,7 +20,9 @@ const ProjectRoutes = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/blog" element={<Blog />} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/consultation" element={<Consultation />} />
         <Route path="/company-sign-up" element={<CompanySignUp />} />
         <Route path="/artical" element={<Artical />} />
         <Route path="/about-us" element={<AboutUs />} />

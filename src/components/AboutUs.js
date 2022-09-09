@@ -31,7 +31,7 @@ const AboutUs = () => {
                         className='flex-column'
                     >
                         <Box className='d-flex align-items-center justify-content-end'>
-                            <Box sx={{ maxWidth: '450px', borderBottomRightRadius: 20 }} className="w-100 bg-white gap-3" p={2} pb={3}>
+                            <Box sx={{ maxWidth: '400px', borderBottomRightRadius: 20 }} className="w-100 bg-white gap-3" p={2} pb={3}>
                                 <Typography text='رسالتنا ' sx={{ color: '#39281F', fontSize: '22px', fontWeight: 600, textAlign: 'end' }} />
                                 <Typography text='هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور
 هو ببساطة نص شكلي (بمعنى أن هو ببساطة نص شكلي (بمعنى أن'
@@ -45,7 +45,7 @@ const AboutUs = () => {
                             </Box>
                         </Box>
                         <Box className='d-flex align-items-center justify-content-start'>
-                            <Box sx={{ maxWidth: '450px', borderBottomRightRadius: 20 }} className="w-100 bg-white gap-3" p={2} pb={3}>
+                            <Box sx={{ maxWidth: '400px', borderBottomRightRadius: 20 }} className="w-100 bg-white gap-3" p={2} pb={3}>
                                 <Typography text='لماذا نحن ؟' sx={{ color: '#39281F', fontSize: '22px', fontWeight: 600, textAlign: 'end' }} />
                                 <Typography text='هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور
 هو ببساطة نص شكلي (بمعنى أن هو ببساطة نص شكلي (بمعنى أن'
@@ -59,7 +59,7 @@ const AboutUs = () => {
                             </Box>
                         </Box>
                         <Box className='d-flex align-items-center justify-content-end'>
-                            <Box sx={{ maxWidth: '450px', borderBottomRightRadius: 20 }} className="w-100 bg-white gap-3" p={2} pb={3}>
+                            <Box sx={{ maxWidth: '400px', borderBottomRightRadius: 20 }} className="w-100 bg-white gap-3" p={2} pb={3}>
                                 <Typography text='رؤيتنا' sx={{ color: '#39281F', fontSize: '22px', fontWeight: 600, textAlign: 'end' }} />
                                 <Typography text='هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور
 هو ببساطة نص شكلي (بمعنى أن هو ببساطة نص شكلي (بمعنى أن'
@@ -97,7 +97,7 @@ const AboutUs = () => {
                         <img src={whatsappIcon} alt='' className="h-100 w-100" />
                     </Box>
                 </Box>
-                <Footer sx={{ mt: 5 }} />
+                <Footer showSecondFooter sx={{ mt: 5 }} />
             </Box>
         </>
     )
