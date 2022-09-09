@@ -18,7 +18,21 @@ const PhoneVerification = () => {
 
     const [otp, setOtp] = useState({});
 
-    const handleChange = (e, key) => setOtp({ ...otp, [key]: e?.target?.value });
+    const handleChange = (e, key) => {
+        let { value } = e?.target;
+        value = value?.replace(/[^0-9]/g, '');
+        setOtp({ ...otp, [key]: value });
+    }
+
+    const tabChange = (val) => {
+        let ele = document.querySelectorAll('input');
+        if (ele[val - 1].value != '') {
+            ele[val].focus()
+        } else if (ele[val - 1].value == '') {
+            ele[val - 2].focus()
+        }
+    }
+
 
     return (
         <>
@@ -68,6 +82,7 @@ const PhoneVerification = () => {
                                             <Box mt={2} className="d-flex align-items-center justify-content-around">
                                                 <TextField
                                                     onChange={(e) => handleChange(e, 'value1')}
+                                                    onkeyup={() => tabChange(1)} maxlength={1}
                                                     sx={{
                                                         '& legend': { display: 'none' }, '& fieldset': { top: 0 },
                                                         '& .MuiOutlinedInput-notchedOutline': {
@@ -106,6 +121,7 @@ const PhoneVerification = () => {
                                                 />
                                                 <TextField
                                                     onChange={(e) => handleChange(e, 'value2')}
+                                                    onkeyup={() => tabChange(2)} maxlength={1}
                                                     sx={{
                                                         '& legend': { display: 'none' }, '& fieldset': { top: 0 },
                                                         '& .MuiOutlinedInput-notchedOutline': {
@@ -144,6 +160,7 @@ const PhoneVerification = () => {
                                                 />
                                                 <TextField
                                                     onChange={(e) => handleChange(e, 'value3')}
+                                                    onkeyup={() => tabChange(3)} maxlength={1}
                                                     sx={{
                                                         '& legend': { display: 'none' }, '& fieldset': { top: 0 },
                                                         '& .MuiOutlinedInput-notchedOutline': {
@@ -182,6 +199,7 @@ const PhoneVerification = () => {
                                                 />
                                                 <TextField
                                                     onChange={(e) => handleChange(e, 'value4')}
+                                                    onkeyup={() => tabChange(4)} maxlength={1}
                                                     sx={{
                                                         '& legend': { display: 'none' }, '& fieldset': { top: 0 },
                                                         '& .MuiOutlinedInput-notchedOutline': {

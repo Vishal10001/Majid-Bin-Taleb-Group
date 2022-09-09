@@ -1,14 +1,16 @@
 import React from "react";
-import {Box, AppBar, Container} from '@mui/material';
+import { useNavigate } from "react-router-dom";
+import { Box, AppBar, Container } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 import Button from "../Button";
 import headerLogo from '../../assets/headerLogo.svg';
-import {navList} from "../../utils";
+import { navList } from "../../utils";
 
 const Header = () => {
+    let navigate = useNavigate();
     return (
-        <Box sx={{flexGrow: 1, height: '96px'}}>
+        <Box sx={{ flexGrow: 1, height: '96px' }}>
             <AppBar
                 sx={(theme) => ({
                     pb: '10px',
@@ -36,7 +38,9 @@ const Header = () => {
                             backgroundColor: theme.palette.secondary.main,
                             color: theme.palette.white[100],
                             lineHeight: '41px'
-                        })}>
+                        })}
+                            onClick={() => navigate('/login')}
+                        >
                             الخدمات الإلكترونية
                         </Button>
                         <SearchIcon sx={{ fill: '#AE965A' }} />
@@ -52,11 +56,11 @@ const Header = () => {
                                     gap: theme.spaces.X_LARGE,
                                 },
                                 flexGrow: 3,
-                                display: {xs: 'none', md: 'flex'},
+                                display: { xs: 'none', md: 'flex' },
                                 justifyContent: 'space-between',
                             })}
                         >
-                            <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
+                            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                                 {navList.map((page) => (
                                     <Button
                                         key={page?.navName}
@@ -67,13 +71,14 @@ const Header = () => {
                                             backgroundColor: 'transparent !important',
                                             color: theme.palette.primary.main
                                         })}
+                                        onClick={() => navigate('')}
                                     >
                                         {page?.navName}
                                     </Button>
                                 ))}
                             </Box>
                         </Box>
-                        <img src={headerLogo} style={{height: '70px'}} alt=''/>
+                        <img src={headerLogo} style={{ height: '70px' }} alt='' />
                     </Box>
                 </Container>
             </AppBar>

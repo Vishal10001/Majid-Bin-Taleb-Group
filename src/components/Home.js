@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Box } from '@mui/material';
+import { useNavigate } from "react-router-dom";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import WestIcon from '@mui/icons-material/West';
 import EastIcon from '@mui/icons-material/East';
@@ -43,6 +44,7 @@ var settings = {
 const Home = () => {
     const sampleText = 'نوفر من خلال مجموعة ماجد بن  طالب مجموعة  <br/>مختلفة من الخدمات القانونية<br/> التى تحتاج اليه';
     const isMobile = mobileAndTabletCheck();
+    let navigate = useNavigate();
     return (
         <Box sx={{ backgroundImage: `url(${diamond})` }}>
 
@@ -75,7 +77,9 @@ const Home = () => {
                             backgroundColor: theme.palette.secondary.main,
                             color: theme.palette.white[100],
                             lineHeight: '41px'
-                        })}>
+                        })}
+                            onClick={() => navigate('/consultation')}
+                        >
                             اطلب استشارتك الآن
                         </Button>
                     </Box>
@@ -135,7 +139,9 @@ const Home = () => {
                                     backgroundColor: theme.palette.secondary.main,
                                     color: theme.palette.white[100],
                                     lineHeight: '41px'
-                                })}>
+                                })}
+                                    onClick={() => navigate('/about-us')}
+                                >
                                     المزيد
                                 </Button>
                             </Box>
@@ -154,7 +160,9 @@ const Home = () => {
                     className='flex-column justify-content-center align-items-center flex-wrap'
                 >
                     <Box className='d-flex align-items-center justify-content-between w-100'>
-                        <Typography sx={(theme) => ({ color: theme.palette.secondary.main, fontSize: '39px' })}
+                        <Typography
+                            onClick={() => navigate('/practice-areas')}
+                            sx={(theme) => ({ color: theme.palette.secondary.main, fontSize: '39px' })}
                             text='رؤية جميع مجالات الممارسة' />
                         <Typography sx={(theme) => ({ color: theme.palette.primary.main, fontSize: '44px' })}
                             text='مجالات الممارسة' />
@@ -337,7 +345,7 @@ const Home = () => {
                         >
                             <Box className='text-end' pb={10} pt={7}>
                                 <Box className='d-flex align-items-center justify-content-between'>
-                                    <Box className='d-flex gap-3  align-items-center'>
+                                    <Box className='d-flex gap-3  align-items-center' onClick={() => navigate('/artical')}>
                                         <WestIcon sx={{ fill: '#AE965A' }} />
                                         <Typography text='اطلع على المزيد' sx={{ color: '#AE965A', fontSize: '30px', fontWeight: 600 }} />
                                     </Box>

@@ -10,21 +10,27 @@ export const mobileAndTabletCheck = () => {
 export const navList = [
     {
         navName: 'تواصل معنا',
+        pathName:'contact-us'
     },
     {
         navName: 'انضم الينا',
+        pathName:'contact-us'
     },
     {
         navName: 'المدونة',
+        pathName:'contact-us'
     },
     {
         navName: 'فريق العمل',
+        pathName:'contact-us'
     },
     {
         navName: 'مجالات الممارسة',
+        pathName:'contact-us'
     },
     {
         navName: 'من نحن',
+        pathName:'contact-us'
     },
 ];
 

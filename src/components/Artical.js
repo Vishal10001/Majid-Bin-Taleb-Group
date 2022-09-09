@@ -1,6 +1,8 @@
 import React from "react";
 import { Box, FormControl, MenuItem, Select, Container } from '@mui/material';
 import WestIcon from '@mui/icons-material/West';
+import { useNavigate } from "react-router-dom";
+
 import articalImg from "../assets/articalImg.jpg";
 import SearchBar from "../commonComponent/SearchBar";
 import Typography from "../commonComponent/Typography";
@@ -10,6 +12,7 @@ import whatsappIcon from "../assets/whatsappIcon.svg";
 import { mobileAndTabletCheck } from "../utils";
 
 const Artical = () => {
+    let navigate = useNavigate();
     const [age, setAge] = React.useState('');
     const [page, setPage] = React.useState(1);
 
@@ -89,7 +92,9 @@ const Artical = () => {
                 >
                     <Box mt={5} className='d-flex flex-column gap-5'>
                         {Array.from({ length: 8 }).map(() =>
-                            <Box className="d-flex flex-wrap align-items-streach justify-content-between bg-white" sx={{ borderTopRightRadius: isMobile ? '0px' : '50px' }}>
+                            <Box
+                                onClick={() => navigate('/blog')}
+                                className="d-flex flex-wrap align-items-streach justify-content-between bg-white" sx={{ borderTopRightRadius: isMobile ? '0px' : '50px' }}>
                                 <Box sx={{ width: isMobile ? '100%' : 'auto' }}>
                                     <img style={{ maxHeight: '200px', borderBottomRightRadius: '60px' }} src={articalImg} alt="" />
                                 </Box>
