@@ -6,6 +6,9 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background-color: #F5F1EE;
     height: 100vh;
+    /* background-image: url(../src/assets/diamond.svg), url(../src/assets/diamond.svg); */
+    /* background-position: top left, bottom right; */
+    /* background-position: center bottom, left top; */
 }
 
 #root {
@@ -43,4 +46,16 @@ code {
     background-position: center !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #AE965A;
+    font-size: 9px;
+    opacity: 1;
+}
+
+.slick-dots li button:before {
+    color: #fff;
+    opacity: 1;
+    font-size: 7px;
 }

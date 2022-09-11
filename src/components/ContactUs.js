@@ -56,10 +56,10 @@ const ContactUs = () => {
                         className='flex-column'
                     >
                         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
-                            <Grid item xs={4} sm={6} md={6}>
+                            <Grid item xs={12} sm={6} md={6}>
                                 <ContactMap />
                             </Grid>
-                            <Grid className='gap-3 d-flex flex-column' item xs={4} sm={6} md={6}>
+                            <Grid className='gap-3 d-flex flex-column' item xs={12} sm={6} md={6}>
                                 <TextField />
                                 <TextField />
                                 <TextField />

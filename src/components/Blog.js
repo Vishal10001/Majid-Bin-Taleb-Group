@@ -29,11 +29,15 @@ const Blog = () => {
                 >
                     <Box className="d-flex align-items-start justify-content-between">
                         <Button size='small' rounded sx={(theme) => ({
-                            maxHeight: '50px',
+                            maxHeight: '40px',
                             height: '100%',
                             backgroundColor: theme.palette.secondary.main,
                             color: theme.palette.white[100],
-                            lineHeight: '41px'
+                            lineHeight: '40px',
+                            minWidth: '125px',
+                            px: isMobile ? '1px' : 'auto',
+                            fontWeight: 600,
+                            fontSize: '18px'
                         })}>
                             جميع المقالات
                         </Button>

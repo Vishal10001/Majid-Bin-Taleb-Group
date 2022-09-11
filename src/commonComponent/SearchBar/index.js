@@ -9,6 +9,9 @@ const SearchBar = () => {
         InputLabelProps={{ shrink: false }}
         variant="outlined"
         sx={{
+            '& .MuiInputBase-root': {
+                pl: 0,
+            },
             borderRadius: 10,
             '& legend': { display: 'none' }, '& fieldset': { top: 0 },
             border: '1px solid #AE965A',
@@ -19,7 +22,7 @@ const SearchBar = () => {
                 pr: 0
             },
             '& .MuiOutlinedInput-input': {
-                padding: '10px 10px 10px 0',
+                padding: '7px 10px 7px 0',
             }
         }}
         className='text-end'

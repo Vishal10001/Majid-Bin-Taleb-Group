@@ -9,8 +9,10 @@ import DateCalanderPicker from '../commonComponent/DateCalanderPicker';
 import Footer from '../commonComponent/Footer';
 import whatsappIcon from "../assets/whatsappIcon.svg";
 import Button from '../commonComponent/Button';
+import { mobileAndTabletCheck } from '../utils';
 
 const Consultation = () => {
+    const isMobile = mobileAndTabletCheck();
     return (
         <Box sx={{
             backgroundImage: `url(${diamond})`,
@@ -69,7 +71,8 @@ const Consultation = () => {
                                     sx={{
                                         background: 'white',
                                         maxWidth: '418px',
-                                        borderRadius: 10
+                                        borderRadius: 10,
+                                        boxShadow: '0px 10px 15px 0px #0000001A',
                                     }}
                                 />
                                 <CheckBoxWithLable
@@ -78,7 +81,8 @@ const Consultation = () => {
                                     sx={{
                                         background: 'white',
                                         maxWidth: '418px',
-                                        borderRadius: 10
+                                        borderRadius: 10,
+                                        boxShadow: '0px 10px 15px 0px #0000001A',
                                     }}
                                 />
                             </Box>
@@ -93,8 +97,8 @@ const Consultation = () => {
                                     textAlign: 'end'
                                 }}
                             />
-                            <Box className='d-flex gap-3  justify-content-between'>
-                                <Box p={1} sx={{ borderBottomRightRadius: 20, maxWidth: '418px', background: 'white' }} className="w-100">
+                            <Box className='d-flex gap-3 flex-wrap' sx={{ justifyContent: isMobile ? 'center' : 'space-between' }}>
+                                <Box p={1} sx={{ borderBottomRightRadius: 20, maxWidth: '418px', background: 'white', boxShadow: '0px 10px 15px 0px #0000001A' }} className="w-100">
                                     <Typography
                                         text="تفاصيل الاستشارة القانونية "
                                         sx={{

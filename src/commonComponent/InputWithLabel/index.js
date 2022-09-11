@@ -6,7 +6,10 @@ import IconButton from '@mui/material/IconButton';
 const InputWithLabel = (props) => {
     const { label, required, type = 'text', sx, restProps } = props;
     return (
-        <Box className=' w-100' {...restProps} px={2} pt={1} sx={{ borderBottomRightRadius: '30px', background: 'white', ...sx }}>
+        <Box className=' w-100' {...restProps} px={2} pt={1} sx={{
+            borderBottomRightRadius: '30px', background: 'white',
+            boxShadow: '0px 2px 2px 0px #0000001A inset', ...sx
+        }}>
             <InputLabel sx={{ fontSize: '0.8rem', color: '#AE965A' }} className='text-end' htmlFor="component-simple">
                 {required && <span className='color-red'>*</span>}
                 {label}

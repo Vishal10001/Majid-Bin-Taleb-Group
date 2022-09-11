@@ -10,13 +10,13 @@ import { navList } from "../../utils";
 const Header = () => {
     let navigate = useNavigate();
     return (
-        <Box sx={{ flexGrow: 1, height: '96px' }}>
+        <Box sx={{ flexGrow: 1, height: '80px' }}>
             <AppBar
                 sx={(theme) => ({
-                    pb: '10px',
-                    pt: '15px',
+                    // pb: '10px',
+                    // pt: '15px',
                     padding: 'auto',
-                    height: '96px',
+                    height: '80px',
                     boxShadow: 'none !important',
                     backgroundColor: theme.palette.secondary[300],
                     borderBottom: `${theme.border.width[2]} solid ${theme.palette.secondary.main}`
@@ -33,17 +33,19 @@ const Header = () => {
                 >
                     <Box className='d-flex align-items-center justify-content-between gap-4'>
                         <Button size='small' rounded sx={(theme) => ({
-                            maxHeight: '50px',
+                            maxHeight: '40px',
                             height: '100%',
                             backgroundColor: theme.palette.secondary.main,
                             color: theme.palette.white[100],
-                            lineHeight: '41px'
+                            lineHeight: '41px',
+                            fontWeight: 600,
+                            fontSize: '16px'
                         })}
                             onClick={() => navigate('/login')}
                         >
                             الخدمات الإلكترونية
                         </Button>
-                        <SearchIcon sx={{ fill: '#AE965A' }} />
+                        <SearchIcon fontSize="small" sx={{ fill: '#39281F' }} />
                         {/* <img src={searchIcon} alt=''/> */}
                     </Box>
                     <Box className='d-flex align-items-center justify-content-between gap-3'>
@@ -69,7 +71,8 @@ const Header = () => {
                                             height: '100%',
                                             display: 'block',
                                             backgroundColor: 'transparent !important',
-                                            color: theme.palette.primary.main
+                                            color: '#39281F',
+                                            fontWeight: 400
                                         })}
                                         onClick={() => navigate('')}
                                     >
@@ -78,7 +81,7 @@ const Header = () => {
                                 ))}
                             </Box>
                         </Box>
-                        <img src={headerLogo} style={{ height: '70px' }} alt='' />
+                        <img src={headerLogo} style={{ height: '55px',maxWidth:'66px' }} alt='' />
                     </Box>
                 </Container>
             </AppBar>

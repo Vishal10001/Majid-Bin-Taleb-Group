@@ -1,13 +1,13 @@
 import * as React from 'react';
 import dayjs from 'dayjs';
+import { FormControl, MenuItem, Select, Box } from "@mui/material";
 import isBetweenPlugin from 'dayjs/plugin/isBetween';
 import { styled } from '@mui/material/styles';
-import TextField from '@mui/material/TextField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 import { CalendarPicker } from '@mui/x-date-pickers/CalendarPicker';
 import { PickersDay } from '@mui/x-date-pickers/PickersDay';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
 dayjs.extend(isBetweenPlugin);
 
@@ -37,7 +37,7 @@ function disableWeekends(date) {
     const d = new Date();
     let day = d.getDay()
     // need to get specific day for disabe it
-    console.log("day is ------------------------>",d,"date--------------->",date);
+    console.log("day is ------------------------>", d, "date--------------->", date);
     if (typeof date === 'object' && date !== null && 'getDay' in date) {
         const result = date.getDay();
         console.log(result); // 👉️ 4
@@ -80,8 +80,9 @@ export default function DateCalanderPicker() {
     // };
 
     return (
-        <LocalizationProvider sx={{ borderRadius: 20, background: 'white' }} dateAdapter={AdapterDayjs}>
-            {/* <StaticDatePicker
+        <Box sx={{ borderRadius: 5, background: 'white', boxShadow: '0px 2px 12px 0px #0000001A' }} py={1}>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                {/* <StaticDatePicker
                 displayStaticWrapperAs="desktop"
                 label="Week picker"
                 value={value}
@@ -93,11 +94,103 @@ export default function DateCalanderPicker() {
                 inputFormat="'Week of' MMM d"
                 sx={{ borderRadius: 20 }}
             /> */}
-            <CalendarPicker
-                shouldDisableDate={disableWeekends}
-                date={date}
-                onChange={(newDate) => setDate(newDate)}
-            />
-        </LocalizationProvider>
+                <CalendarPicker
+                    shouldDisableDate={disableWeekends}
+                    date={date}
+                    onChange={(newDate) => setDate(newDate)}
+                />
+                <FormControl sx={{ m: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }} className="gap-3">
+                    <Select
+                        displayEmpty
+                        defaultValue='am'
+                        sx={{
+                            fontSize: '15px',
+                            // border: '1px solid #CAC7C7',
+                            borderRadius: '10px',
+                            backgroundColor: '#fff',
+                            color: '#AE965A',
+                            '& legend': { display: 'none' }, '& fieldset': {
+                                top: 0,
+                                color: '#AE965A',
+                                // borderColor: '#CAC7C7'
+                            },
+                            '& .MuiOutlinedInput-notchedOutline': {
+                                color: '#AE965A !important',
+                                borderColor: '#CAC7C7 !important'
+                            },
+                            '& .MuiSelect-select': {
+                                paddingRight: '30px !important',
+                                py: '10px'
+                            },
+                            '& .MuiSvgIcon-root': {
+                                fill: '#AE965A'
+                            }
+                        }}
+                    >
+                        <MenuItem value='am'>AM</MenuItem>
+                        <MenuItem value='pm'>PM</MenuItem>
+                    </Select>
+                    <Select
+                        displayEmpty
+                        defaultValue='2'
+                        sx={{
+                            fontSize: '15px',
+                            // border: '1px solid #CAC7C7',
+                            borderRadius: '10px',
+                            backgroundColor: '#fff',
+                            color: '#AE965A',
+                            '& legend': { display: 'none' }, '& fieldset': {
+                                top: 0,
+                                color: '#AE965A',
+                                // borderColor: '#CAC7C7'
+                            },
+                            '& .MuiOutlinedInput-notchedOutline': {
+                                color: '#AE965A !important',
+                                borderColor: '#CAC7C7 !important'
+                            },
+                            '& .MuiSelect-select': {
+                                paddingRight: '30px !important',
+                                py: '10px'
+                            },
+                            '& .MuiSvgIcon-root': {
+                                fill: '#AE965A'
+                            }
+                        }}
+                    >
+                        {Array.from({ length: 60 }).map((item, index) => <MenuItem value={index + 1}>{index + 1}</MenuItem>)}
+                    </Select>
+                    <Select
+                        displayEmpty
+                        defaultValue='2'
+                        sx={{
+                            fontSize: '15px',
+                            // border: '1px solid #CAC7C7',
+                            borderRadius: '10px',
+                            backgroundColor: '#fff',
+                            color: '#AE965A',
+                            '& legend': { display: 'none' }, '& fieldset': {
+                                top: 0,
+                                color: '#AE965A',
+                                borderColor: '#CAC7C7'
+                            },
+                            '& .MuiOutlinedInput-notchedOutline': {
+                                color: '#AE965A !important',
+                                // borderColor: '#CAC7C7 !important'
+                            },
+                            '& .MuiSelect-select': {
+                                paddingRight: '30px !important',
+                                py: '10px'
+                            },
+                            '& .MuiSvgIcon-root': {
+                                fill: '#AE965A'
+                            }
+                        }}
+                    >
+                        {Array.from({ length: 12 }).map((item, index) => <MenuItem value={index + 1}>{index + 1}</MenuItem>)}
+                    </Select>
+                    <AccessTimeIcon sx={{ fill: '#CAC7C7' }} />
+                </FormControl>
+            </LocalizationProvider>
+        </Box>
     );
 }

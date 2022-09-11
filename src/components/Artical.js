@@ -39,6 +39,7 @@ const Artical = () => {
                                 value={age}
                                 onChange={handleChange}
                                 displayEmpty
+                                defaultValue="10"
                                 sx={{
                                     fontSize: '15px',
                                     border: '1px solid #CAC7C7',
@@ -57,7 +58,7 @@ const Artical = () => {
                                     '& .MuiSelect-select': {
                                         paddingLeft: '25px !important',
                                         paddingRight: '14px !important',
-                                        py: '13px'
+                                        py: '10px'
                                     },
                                     '& .MuiSvgIcon-root': {
                                         left: 4,
@@ -75,8 +76,8 @@ const Artical = () => {
                     </Box>
                     <Typography className='text-end'
                         sx={{
-                            fontSize: '30px',
-                            fontWeight: 900,
+                            fontSize: '23px',
+                            fontWeight: 700,
                             color: '#39281F'
                         }}
                         text='جميع المقالات'
@@ -98,31 +99,39 @@ const Artical = () => {
                                 <Box sx={{ width: isMobile ? '100%' : 'auto' }}>
                                     <img style={{ maxHeight: '200px', borderBottomRightRadius: '60px' }} src={articalImg} alt="" />
                                 </Box>
-                                <Box className="d-flex flex-column justify-content-between" p={3}>
-                                    <Box>
+                                <Box className="d-flex flex-column justify-content-between gap-3" p={3}>
+                                    <Box sx={{ maxWidth: '700px' }}>
                                         <Typography className='text-end'
                                             sx={{
-                                                fontSize: '20px',
-                                                fontWeight: 900,
+                                                fontSize: '17px',
+                                                fontWeight: 400,
                                                 color: '#CAC7C7'
                                             }}
                                             text='يناير 10 , 2022 '
                                         />
                                         <Typography className='text-end'
                                             sx={{
-                                                fontSize: '25px',
-                                                fontWeight: 900,
+                                                fontSize: '22px',
+                                                fontWeight: 700,
                                                 color: '#39281F'
                                             }}
                                             text="ماهي القيمة المضافة باندماج الشركات ؟"
+                                        />
+                                        <Typography className='text-end'
+                                            sx={{
+                                                fontSize: '17px',
+                                                fontWeight: 400,
+                                                color: '#39281F'
+                                            }}
+                                            text="ماهي القيمة المضافة باندماج الشركات الشكلي عندما قامت مطبعة  ماهي القيمة المضافة باندماج الشركات الشكلي عندما قامت مطبعة "
                                         />
                                     </Box>
                                     <Box className="d-flex align-items-center justify-content-end">
                                         <WestIcon sx={{ fill: '#AE965A' }} />
                                         <Typography className='text-end'
                                             sx={{
-                                                fontSize: '22px',
-                                                fontWeight: 900,
+                                                fontSize: '17px',
+                                                fontWeight: 400,
                                                 color: '#AE965A'
                                             }}
                                             text='اقرأ المزيد '
