@@ -21,7 +21,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const isMobile = mobileAndTabletCheck();
-const sampleText = `هل لديك حساب ؟ <span class='light-yellow fw-600'>تسجيل الدخول </spam>`;
+const sampleText = `هل لديك حساب ؟ <span class='light-yellow fw-900'>تسجيل الدخول </spam>`;
 
 const SignUp = () => {
     return (
@@ -50,7 +50,7 @@ const SignUp = () => {
                                         sx={{
                                             color: '#39281F',
                                             fontSize: '24px',
-                                            fontWeight: 600,
+                                            fontWeight: 700,
                                             mt: 4
                                         }}
                                         className="text-end"
@@ -82,7 +82,7 @@ const SignUp = () => {
                         </Grid>
                         <Box my={5} className='d-flex align-items-center justify-content-end gap-3 w-100'>
                             <Box className='position-relative'
-                                sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30 })} p={1}
+                                sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30, boxShadow: '0px 4px 4px 0px #00000040' })} p={1}
                                 px={2}>
                                 <Box sx={{
                                     position: 'absolute',

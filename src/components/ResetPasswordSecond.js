@@ -209,7 +209,7 @@ const ResetPasswordSecond = () => {
                                     </Box>
                                     <Box className="w-100 d-flex gap-2 flex-column justify-content-end">
                                         <Box className='d-flex align-items-center justify-content-end'>
-                                            <Button className="w-100" sx={{ background: '#AE965A !important', mt: 3, color: 'white !important',fontWeight:600 }} rounded>إعادة تعيين كلمة المرور</Button>
+                                            <Button className="w-100" sx={{ background: '#AE965A !important', mt: 3, color: 'white !important', fontWeight: 600 }} rounded>إعادة تعيين كلمة المرور</Button>
                                         </Box>
                                         <Typography
                                             sx={{
@@ -423,7 +423,7 @@ const ResetPasswordSecond = () => {
                                 </Box>
                                 <Box className="w-100 d-flex gap-2 flex-column justify-content-end">
                                     <Box className='d-flex align-items-center justify-content-end'>
-                                        <Button className="w-100" sx={{ background: '#AE965A !important', mt: 3, color: 'white !important', maxWidth: '575px' ,fontWeight:600}} rounded>إعادة تعيين كلمة المرور  </Button>
+                                        <Button className="w-100" sx={{ background: '#AE965A !important', mt: 3, color: 'white !important', maxWidth: '575px', fontWeight: 600 }} rounded>إعادة تعيين كلمة المرور  </Button>
                                     </Box>
                                     <Typography
                                         sx={{
@@ -441,7 +441,7 @@ const ResetPasswordSecond = () => {
                     </Box>
                     <Box className='d-flex align-items-center justify-content-end gap-3 w-100'>
                         <Box className='position-relative'
-                            sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30 })} p={1}
+                            sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30, boxShadow: '0px 4px 4px 0px #00000040' })} p={1}
                             px={2}>
                             <Box sx={{
                                 position: 'absolute',

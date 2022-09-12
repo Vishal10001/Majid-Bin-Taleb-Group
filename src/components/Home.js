@@ -20,6 +20,7 @@ import quoteImg from "../assets/quoteImg.svg";
 import teamImg from "../assets/teamImg.svg";
 import { feedbackArray, mobileAndTabletCheck, practiceArray } from "../utils";
 import Footer from "../commonComponent/Footer";
+import Modal from "../commonComponent/Modal";
 
 const slickImgStyle = {
     color: '#fff !important',
@@ -94,12 +95,13 @@ const imageSlider = [
 ];
 
 const Home = () => {
+    const [open, setOpen] = React.useState(false);
     const sampleText = 'نوفر من خلال مجموعة ماجد بن  طالب مجموعة  <br/>مختلفة من الخدمات القانونية<br/> التى تحتاج اليه';
     const isMobile = mobileAndTabletCheck();
     let navigate = useNavigate();
     return (
-        <Box>
-            {/* <Box sx={{ backgroundImage: `url(${diamond})` }}> */}
+        <Box sx={{ backgroundImage: `url(${diamond})` }}>
+            {/* <Box> */}
             <Box mt='120px' className="d-flex align-items-center justify-content-end">
                 <Box sx={{ background: '#fff' }} px={2} py={1} mr={2}>
                     <Typography className='text-end'
@@ -134,6 +136,7 @@ const Home = () => {
                             sx={{
                                 fontSize: '18px',
                                 mt: 2,
+                                fontWeight: 500,
                                 color: '#39281F'
                             }}
                             dangerouslySetInnerHTML={{ __html: sampleText }}
@@ -146,7 +149,7 @@ const Home = () => {
                             backgroundColor: theme.palette.secondary.main,
                             color: theme.palette.white[100],
                             lineHeight: '35px',
-                            fontWeight: 600
+                            fontWeight: 800
                         })}
                             onClick={() => navigate('/consultation')}
                         >
@@ -182,6 +185,8 @@ const Home = () => {
                     cursor: 'pointer'
                 })} px={0.5}
                     pt={2.5} pb={0.5}
+                    
+                    onClick={() => document.querySelector('.footer-sub').scrollIntoView({ behavior: 'smooth' })}
                 >
                     <ExpandMoreIcon sx={{ fill: 'white' }} />
                 </Box>
@@ -207,9 +212,9 @@ const Home = () => {
                             <Box className='text-end w-100'
                                 sx={{ maxWidth: '1100px', margin: '0 auto' }}
                                 py={7}>
-                                <Typography text='لوريم إيبسوم' sx={{ color: '#39281F', fontSize: '25px', fontWeight: 700 }} />
+                                <Typography text='لوريم إيبسوم' sx={{ color: '#39281F', fontSize: '25px', fontWeight: 800 }} />
                                 <Typography text='لوريم إيبسوم هو ببساطة نص رسمي (بمعنى أن النهاية هي الشكل وليس الشكل'
-                                    sx={{ color: '#39281F', fontSize: '22px', mt: 2, fontWeight: 500 }} />
+                                    sx={{ color: '#39281F', fontSize: '22px', mt: 2, fontWeight: 600 }} />
                                 <Box className='d-flex flex-column gap-5' mt={3}>
                                     <Typography sx={{ color: '#39281F', fontSize: '18px', fontWeight: 400, display: { xs: 'none', md: 'block', sm: 'block', lg: 'block', xl: 'block' } }}
                                         text='الإجراء الشكلي هو عندما تقوم مطبعة غير معروفة بتكديس مجموعة من الأحرف المأخوذة عشوائيًا من النص ، لتشكيل كتيب يعمل كدليل أو مرجع رسمي لهذه الأحرف. خمسة قرون من الزمن لم تحذف هذا النص ، بل تم استخدامه' />
@@ -221,7 +226,7 @@ const Home = () => {
                                             color: theme.palette.white[100],
                                             lineHeight: '41px',
                                             fontSize: '20px',
-                                            fontWeight: 600
+                                            fontWeight: 800
                                         })}
                                             onClick={() => navigate('/about-us')}
                                         >
@@ -248,10 +253,10 @@ const Home = () => {
                         <Box onClick={() => navigate('/practice-areas')} className="d-flex align-items-center gap-3">
                             <WestIcon sx={{ fill: '#AE965A' }} />
                             <Typography
-                                sx={(theme) => ({ color: theme.palette.secondary.main, fontSize: '18px' })}
+                                sx={(theme) => ({ fontWeight: 400, color: theme.palette.secondary.main, fontSize: '18px' })}
                                 text='رؤية جميع مجالات الممارسة' />
                         </Box>
-                        <Typography sx={(theme) => ({ color: theme.palette.primary.main, fontSize: '22px' })}
+                        <Typography sx={(theme) => ({ fontWeight: 800, color: theme.palette.primary.main, fontSize: '22px' })}
                             text='مجالات الممارسة' />
                     </Box>
                     <Box className='d-flex align-items-center justify-content-center flex-wrap gap-5' mt={4}>
@@ -267,7 +272,7 @@ const Home = () => {
                                 <Box className='text-end'>
                                     <img src={carImg} style={{ height: '46px', width: '46px' }} />
                                 </Box>
-                                <Typography text={item?.text} />
+                                <Typography text={item?.text} sx={{ fontWeight: 400 }} />
                             </Box>)}
                     </Box>
                 </Container>
@@ -289,7 +294,7 @@ const Home = () => {
                     })} />
                     <Box my={5} className='d-flex align-items-center justify-content-end gap-3 w-100'>
                         <Box className='position-relative'
-                            sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30 })} p={1}
+                            sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30, boxShadow: '0px 4px 4px 0px #00000040' })} p={1}
                             px={2}>
                             <Box sx={{
                                 position: 'absolute',
@@ -313,26 +318,17 @@ const Home = () => {
                 </Container>
             </Box>
             <Box>
-                <Container
-                    maxWidth={false}
-                    sx={(theme) => ({
-                        gap: '10px',
-                        display: 'flex',
-                    })}
-                    className=" flex-wrap"
-                >
-                    <Box sx={(theme) => ({ background: theme.palette.primary.main, borderTopRightRadius: isMobile ? '8      0px' : '140px' })}
-                        className='w-100 d-flex flex-wrap align-items-center justify-content-around' p={2} py={4}>
-                        <Container maxWidth={false}>
-                            <Slider {...imgSliderSettings}>
-                                {imageSlider.map((item, index) =>
-                                    <Box key={index} sx={{ maxWidth: '576px', height: '128px' }}>
-                                        <img src={item?.imageSrc} alt='' className="h-100 w-100" />
-                                    </Box>)}
-                            </Slider>
-                        </Container>
-                    </Box>
-                </Container>
+                <Box sx={(theme) => ({ background: theme.palette.primary.main, borderTopRightRadius: isMobile ? '80px' : '140px' })}
+                    className='w-100 d-flex flex-wrap align-items-center justify-content-around' p={2} py={4}>
+                    <Container maxWidth={false}>
+                        <Slider {...imgSliderSettings}>
+                            {imageSlider.map((item, index) =>
+                                <Box key={index} sx={{ maxWidth: '576px', height: '128px' }}>
+                                    <img src={item?.imageSrc} alt='' className="h-100 w-100" />
+                                </Box>)}
+                        </Slider>
+                    </Container>
+                </Box>
             </Box>
             <Box mt={10}>
                 <Container
@@ -356,25 +352,26 @@ const Home = () => {
                     <Slider {...settings}>
                         {feedbackArray.map((item, index) =>
                             <Box p={2} key={index} sx={{ maxHeight: isMobile ? '180px' : '422px', maxWidth: '430px', border: '1px solid #AE965A', height: '100%', width: '100%' }} className='text-end'>
-                                <Box className="d-flex flex-column align-items-end">
+                                <Box className="d-flex flex-column align-items-end gap-3">
                                     <Box className='d-flex justify-content-end'>
-                                        <img src={quoteImg} alt='' height='45px' width='45px' />
+                                        <img src={quoteImg} alt='' height='35px' width='35px' />
                                     </Box>
                                     <Typography text={item?.mainText} sx={(theme) => ({
                                         color: theme.palette.primary.main,
-                                        fontSize: '22px',
+                                        fontSize: '16px',
                                         fontWeight: 300,
                                         maxWidth: '300px',
                                         width: '100%'
                                     })} />
                                     <Typography text={item?.personName} sx={(theme) => ({
                                         color: '#000000',
-                                        fontSize: '28px',
-                                        fontWeight: 700
+                                        fontSize: '20px',
+                                        fontWeight: 700,
+                                        mt: 5
                                     })} />
                                     <Typography text={item?.otherText} sx={(theme) => ({
                                         color: theme.palette.primary.main,
-                                        fontSize: '18px',
+                                        fontSize: '16px',
                                         fontWeight: 400
                                     })} />
                                 </Box>
@@ -438,10 +435,10 @@ const Home = () => {
                                 <Box className='d-flex align-items-center justify-content-between'>
                                     <Box className='d-flex gap-3  align-items-center' onClick={() => navigate('/artical')}>
                                         <WestIcon sx={{ fill: '#AE965A' }} />
-                                        <Typography text='اطلع على المزيد' sx={{ color: '#AE965A', fontSize: '18px', fontWeight: 600 }} />
+                                        <Typography text='اطلع على المزيد' sx={{ color: '#AE965A', fontSize: '18px', fontWeight: 400 }} />
                                     </Box>
                                     <Typography text='المدونة'
-                                        sx={{ color: '#39281F', fontSize: '20px', mt: '-10px' }} />
+                                        sx={{ color: '#39281F', fontSize: '20px', mt: '-10px', fontWeight: 800 }} />
                                 </Box>
                                 <Box mt={5} className="d-flex gap-3 flex-wrap align-items-center justify-content-between">
                                     <Box className="d-flex flex-column gap-4" sx={{
@@ -451,12 +448,12 @@ const Home = () => {
                                         <Box className="d-flex align-items-end" sx={{ maxWidth: '320px' }}>
                                             <WestIcon sx={{ fill: '#AE965A' }} />
                                             <Typography text='لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي  '
-                                                sx={{ color: '#39281F', fontSize: '25px', fontWeight: 700 }} />
+                                                sx={{ color: '#39281F', fontSize: '17px', fontWeight: 700 }} />
                                         </Box>
-                                        <Box className="d-flex align-items-center justify-content-end">
+                                        <Box className="d-flex align-items-center justify-content-end" mt={2}>
                                             <Typography text='فبراير, 2022'
-                                                sx={{ color: '#CAC7C7', fontSize: '25px', fontWeight: 500 }} />
-                                            <CalendarMonthIcon />
+                                                sx={{ color: '#CAC7C7', fontSize: '14px', fontWeight: 500 }} />
+                                            <CalendarMonthIcon sx={{ fill: '#CAC7C7' }} />
                                         </Box>
                                     </Box>
                                     <Box className="d-flex flex-column gap-4" sx={{
@@ -466,12 +463,12 @@ const Home = () => {
                                         <Box className="d-flex align-items-end" sx={{ maxWidth: '320px' }}>
                                             <WestIcon sx={{ fill: '#AE965A' }} />
                                             <Typography text='لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي  '
-                                                sx={{ color: '#39281F', fontSize: '25px', fontWeight: 700 }} />
+                                                sx={{ color: '#39281F', fontSize: '17px', fontWeight: 700 }} />
                                         </Box>
-                                        <Box className="d-flex align-items-center justify-content-end">
+                                        <Box className="d-flex align-items-center justify-content-end" mt={2}>
                                             <Typography text='فبراير, 2022'
-                                                sx={{ color: '#CAC7C7', fontSize: '25px', fontWeight: 500 }} />
-                                            <CalendarMonthIcon />
+                                                sx={{ color: '#CAC7C7', fontSize: '14px', fontWeight: 500 }} />
+                                            <CalendarMonthIcon sx={{ fill: '#CAC7C7' }} />
                                         </Box>
                                     </Box>
                                     <Box className="d-flex flex-column gap-4" sx={{
@@ -481,12 +478,12 @@ const Home = () => {
                                         <Box className="d-flex align-items-end" sx={{ maxWidth: '320px' }}>
                                             <WestIcon sx={{ fill: '#AE965A' }} />
                                             <Typography text='لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي  '
-                                                sx={{ color: '#39281F', fontSize: '25px', fontWeight: 700 }} />
+                                                sx={{ color: '#39281F', fontSize: '17px', fontWeight: 700 }} />
                                         </Box>
-                                        <Box className="d-flex align-items-center justify-content-end">
+                                        <Box className="d-flex align-items-center justify-content-end" mt={2}>
                                             <Typography text='فبراير, 2022'
-                                                sx={{ color: '#CAC7C7', fontSize: '25px', fontWeight: 500 }} />
-                                            <CalendarMonthIcon />
+                                                sx={{ color: '#CAC7C7', fontSize: '14px', fontWeight: 500 }} />
+                                            <CalendarMonthIcon sx={{ fill: '#CAC7C7' }} />
                                         </Box>
                                     </Box>
                                 </Box>
@@ -496,23 +493,27 @@ const Home = () => {
                 </Container>
             </Box>
             <Box mt={15} sx={(theme) => ({ backgroundColor: '#AE965A', borderBottomRightRadius: '140px', maxHeight: '500px', height: '100%' })} p={5}>
-                <Container maxWidth={false}>
-                    <Slider {...settings}>
-                        {feedbackArray.map((item, index) =>
-                            <Box p={2} key={index} sx={{
-                                maxHeight: isMobile ? '200px' : '422px',
-                                maxWidth: '430px',
-                                border: '1px solid #AE965A',
-                                height: '300px',
-                                width: '300px',
-                                borderRadius: 10,
-                                background: '#fff',
-                                boxShadow: '0px 15px 70px 0px #00000040',
-                            }} className='text-end' />)}
-                    </Slider>
-                </Container>
+                <Typography text='Twitter API (LIVE)' sx={{ color: '#39281F', fontSize: '20px', fontWeight: 800 }} />
+                <Box mt={3}>
+                    <Container maxWidth={false}>
+                        <Slider {...settings}>
+                            {feedbackArray.map((item, index) =>
+                                <Box p={2} key={index} sx={{
+                                    maxHeight: isMobile ? '200px' : '422px',
+                                    maxWidth: '430px',
+                                    border: '1px solid #AE965A',
+                                    height: '300px',
+                                    width: '300px',
+                                    borderRadius: 10,
+                                    background: '#fff',
+                                    boxShadow: '0px 15px 70px 0px #00000040',
+                                }} className='text-end' />)}
+                        </Slider>
+                    </Container>
+                </Box>
             </Box>
             <Footer />
+            <Modal open={open} />
         </Box >
     )
 };

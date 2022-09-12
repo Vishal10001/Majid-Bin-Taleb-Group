@@ -12,7 +12,7 @@ const CheckBoxWithLable = (props) => {
             {labelText && <Typography
                 sx={{
                     color: '#000000',
-                    fontSize: '18px',
+                    fontSize: '16px',
                 }}
                 className="text-end"
                 text={labelText}

@@ -33,7 +33,7 @@ const Consultation = () => {
                             sx={{
                                 fontSize: '20px',
                                 color: '#39281F',
-                                fontWeight: 700,
+                                fontWeight: 900,
                                 textAlign: 'end'
                             }}
                         />
@@ -47,10 +47,10 @@ const Consultation = () => {
                             }}
                         />
                     </Box>
-                    <Box className='d-flex flex-column gap-4' mt={5}>
+                    <Box className='d-flex flex-column gap-5' mt={6}>
                         <Box className='d-flex gap-3'>
-                            <InputWithLabel label="اسمك " />
-                            <InputWithLabel label="رقم الهاتف" />
+                            <InputWithLabel inputSx={{ color: '#979797', fontSize: '14px' }} defaultValue="نايف سالم الزهراني " label="اسمك " />
+                            <InputWithLabel inputSx={{ color: '#979797', fontSize: '14px' }} defaultValue="055 123 4567" label="رقم الهاتف" />
                         </Box>
                         <Box className='d-flex flex-column gap-3'>
                             <Typography
@@ -58,47 +58,51 @@ const Consultation = () => {
                                 sx={{
                                     fontSize: '18px',
                                     color: '#39281F',
-                                    fontWeight: 500,
+                                    fontWeight: 600,
                                     textAlign: 'end'
                                 }}
                             />
-                            <Box className='d-flex gap-3'>
+                            <Box className='d-flex align-items-center gap-3'>
                                 <CheckBoxWithLable
-                                    labelText="اسمك "
+                                    labelText="يُستخدم في صناعات المطابع ودور النشر"
                                     className="w-100"
-                                    py={2}
-                                    px={1}
                                     sx={{
                                         background: 'white',
                                         maxWidth: '418px',
                                         borderRadius: 10,
                                         boxShadow: '0px 10px 15px 0px #0000001A',
+                                        fontWeight: 600,
+                                        fontSize: '16px',
+                                        p: 1,
                                     }}
                                 />
                                 <CheckBoxWithLable
-                                    labelText="رقم الهاتف"
+                                    labelText="يُستخدم في صناعات المطابع ودور النشر"
                                     className="w-100"
                                     sx={{
                                         background: 'white',
                                         maxWidth: '418px',
                                         borderRadius: 10,
                                         boxShadow: '0px 10px 15px 0px #0000001A',
+                                        fontWeight: 600,
+                                        fontSize: '16px',
+                                        p: 1,
                                     }}
                                 />
                             </Box>
                         </Box>
                         <Box className='d-flex flex-column gap-3'>
                             <Typography
-                                text="نوع الاستشارة"
+                                text="قم بتحديد تاريخ "
                                 sx={{
                                     fontSize: '18px',
                                     color: '#39281F',
-                                    fontWeight: 500,
+                                    fontWeight: 600,
                                     textAlign: 'end'
                                 }}
                             />
                             <Box className='d-flex gap-3 flex-wrap' sx={{ justifyContent: isMobile ? 'center' : 'space-between' }}>
-                                <Box p={1} sx={{ borderBottomRightRadius: 20, maxWidth: '418px', background: 'white', boxShadow: '0px 10px 15px 0px #0000001A' }} className="w-100">
+                                <Box p={1} sx={{ borderBottomRightRadius: '46px', maxWidth: '418px', background: 'white', boxShadow: '0px 10px 15px 0px #0000001A' }} className="w-100">
                                     <Typography
                                         text="تفاصيل الاستشارة القانونية "
                                         sx={{
@@ -143,12 +147,13 @@ const Consultation = () => {
                         </Box>
                         <Box mt={2} className="d-flex align-items-center justify-content-center">
                             <Button size='small' rounded sx={(theme) => ({
-                                maxHeight: '50px',
+                                maxHeight: '40px',
                                 height: '100%',
                                 backgroundColor: theme.palette.secondary.main,
                                 color: theme.palette.white[100],
                                 lineHeight: '41px',
                                 maxWidth: '190px',
+                                fontWeight: 800
                             })}
                                 className="w-100"
                             >
@@ -160,7 +165,7 @@ const Consultation = () => {
             </Box>
             <Box my={5} className='d-flex align-items-center justify-content-end gap-3 w-100'>
                 <Box className='position-relative'
-                    sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30 })} p={1}
+                    sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30, boxShadow: '0px 4px 4px 0px #00000040' })} p={1}
                     px={2}>
                     <Box sx={{
                         position: 'absolute',

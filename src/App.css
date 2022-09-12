@@ -55,6 +55,10 @@
     font-weight: 600;
 }
 
+.fw-900 {
+    font-weight: 900;
+}
+
 .MuiPickerStaticWrapper-content {
     border-radius: 20px;
 }
@@ -68,4 +72,9 @@
 .MuiPickersDay-today {
     background: #AE965A !important;
     color: white !important;
+}
+
+.PrivatePickersFadeTransitionGroup-root {
+    color: #AE965A;
+    font-weight: 500;
 }

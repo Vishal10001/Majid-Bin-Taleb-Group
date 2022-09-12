@@ -9,8 +9,8 @@ import whatsappIcon from "../assets/whatsappIcon.svg";
 
 const AddAccount = () => {
 
-    const sampleText = `<span class='light-yellow'>تواصل </span>معنا الآن عبرتساب `;
-    const sampleText2 = `اختر نوع الحساب  <span class="color-red">*</span>`
+    const sampleText = `معنا الآن عبرتساب <span class='light-yellow fw-900'>تواصل </span> `;
+    const sampleText2 = `اختر نوع الحساب <span class="color-red">*</span>`
 
     return (
         <Box sx={{ backgroundImage: `url(${diamond})` }}>
@@ -29,6 +29,7 @@ const AddAccount = () => {
                         gap: '10px',
                         display: 'flex',
                         height: 'auto',
+                        maxWidth: '1000px'
                     }}
                     className='flex-column'
                 >
@@ -36,7 +37,7 @@ const AddAccount = () => {
                         <Typography
                             className='text-end'
                             sx={{
-                                fontSize: '22px',
+                                fontSize: '16px',
                                 mt: 2
                             }}
                             dangerouslySetInnerHTML={{ __html: sampleText }}
@@ -46,15 +47,15 @@ const AddAccount = () => {
                         <Typography
                             className='text-end'
                             sx={{
-                                fontSize: '25px',
-                                mt: 2,
+                                fontSize: '24px',
+                                mt: 4,
                                 fontWeight: 700
                             }}
                             dangerouslySetInnerHTML={{ __html: sampleText2 }}
                         />
                     </Box>
                     <Box mt={4}>
-                        <Grid className="justify-content-center" container spacing={{ xs: 2, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
+                        <Grid className="justify-content-between" container spacing={{ xs: 2, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
                             <Grid item xs={12} sm={4} md={3}>
                                 <Box
                                     p={5}
@@ -72,7 +73,7 @@ const AddAccount = () => {
                                     }}
                                 >
                                     <Business />
-                                    <Typography text="شركة" />
+                                    <Typography sx={{ fontSize: '20px', fontWeight: 500 }} text="شركة" />
                                 </Box>
                             </Grid>
                             <Grid item xs={12} sm={4} md={3}>
@@ -92,7 +93,7 @@ const AddAccount = () => {
                                     }}
                                 >
                                     <LocationCity />
-                                    <Typography text="مؤسسة" />
+                                    <Typography sx={{ fontSize: '20px', fontWeight: 500 }} text="مؤسسة" />
                                 </Box>
                             </Grid>
                             <Grid item xs={12} sm={4} md={3}>
@@ -112,15 +113,15 @@ const AddAccount = () => {
                                     }}
                                 >
                                     <PermIdentityOutlined />
-                                    <Typography text="فرد / مستقل  " />
+                                    <Typography sx={{ fontSize: '20px', fontWeight: 500 }} text="فرد / مستقل  " />
                                 </Box>
                             </Grid>
                         </Grid>
                     </Box>
                     <Box mt={2}>
-                        <Grid className="justify-content-end" container spacing={{ xs: 2, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
-                            <Grid item xs={12} sm={4} md={3}>
-                                <Button size="medium" className="w-100" sx={{ background: '#AE965A !important', mt: 3, color: 'white !important' }} rounded>ارسال </Button>
+                        <Grid className="justify-content-center" container spacing={{ xs: 2, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
+                            <Grid item xs={12} sm={4} md={4} xl={4} lg={4}>
+                                <Button size="medium" className="w-100" sx={{ maxHeight: '40px', background: '#AE965A !important', mt: 3, color: 'white !important', fontWeight: 800 }} rounded>ارسال </Button>
                             </Grid>
                         </Grid>
                     </Box>
@@ -128,7 +129,7 @@ const AddAccount = () => {
             </Container>
             <Box my={5} className='d-flex align-items-center justify-content-end gap-3 w-100'>
                 <Box className='position-relative'
-                    sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30 })} p={1}
+                    sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30, boxShadow: '0px 4px 4px 0px #00000040' })} p={1}
                     px={2}>
                     <Box sx={{
                         position: 'absolute',

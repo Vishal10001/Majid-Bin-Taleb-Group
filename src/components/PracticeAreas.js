@@ -67,7 +67,7 @@ const PracticeAreas = () => {
                     </Grid>
                     <Box my={5} className='d-flex align-items-center justify-content-end gap-3 w-100'>
                         <Box className='position-relative'
-                            sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30 })} p={1}
+                            sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30, boxShadow: '0px 4px 4px 0px #00000040' })} p={1}
                             px={2}>
                             <Box sx={{
                                 position: 'absolute',

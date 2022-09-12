@@ -6,6 +6,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background-color: #F5F1EE;
     height: 100vh;
+    scroll-behavior: smooth;
     /* background-image: url(../src/assets/diamond.svg), url(../src/assets/diamond.svg); */
     /* background-position: top left, bottom right; */
     /* background-position: center bottom, left top; */
@@ -58,4 +59,13 @@ code {
     color: #fff;
     opacity: 1;
     font-size: 7px;
+}
+
+.artical-img {
+    transition: transform .4s;
+}
+
+.artical-img:hover {
+    transform: scale(1.3);
+    transform-origin: 50% 50%;
 }

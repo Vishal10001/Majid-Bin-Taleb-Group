@@ -80,7 +80,7 @@ export default function DateCalanderPicker() {
     // };
 
     return (
-        <Box sx={{ borderRadius: 5, background: 'white', boxShadow: '0px 2px 12px 0px #0000001A' }} py={1}>
+        <Box sx={{ borderRadius: '20px', background: 'white', boxShadow: '0px 2px 12px 0px #0000001A' }} py={1}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
                 {/* <StaticDatePicker
                 displayStaticWrapperAs="desktop"
@@ -105,14 +105,12 @@ export default function DateCalanderPicker() {
                         defaultValue='am'
                         sx={{
                             fontSize: '15px',
-                            // border: '1px solid #CAC7C7',
                             borderRadius: '10px',
                             backgroundColor: '#fff',
                             color: '#AE965A',
                             '& legend': { display: 'none' }, '& fieldset': {
                                 top: 0,
                                 color: '#AE965A',
-                                // borderColor: '#CAC7C7'
                             },
                             '& .MuiOutlinedInput-notchedOutline': {
                                 color: '#AE965A !important',

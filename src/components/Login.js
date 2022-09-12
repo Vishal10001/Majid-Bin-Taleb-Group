@@ -21,7 +21,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const isMobile = mobileAndTabletCheck();
-const sampleText = `ليس لديك حساب؟ <span class='light-yellow fw-600'> سجل الآن</span> `;
+const sampleText = `ليس لديك حساب؟ <span class='light-yellow fw-900'> سجل الآن</span> `;
 
 const Login = () => {
     return (
@@ -51,7 +51,7 @@ const Login = () => {
                                     <Typography
                                         sx={{
                                             color: '#39281F',
-                                            fontWeight: 600,
+                                            fontWeight: 700,
                                             fontSize: '23px',
                                         }}
                                         className="text-end"
@@ -61,6 +61,7 @@ const Login = () => {
                                         sx={{
                                             color: '#979797',
                                             fontSize: '18px',
+                                            fontWeight: 500,
                                         }}
                                         className="text-end"
                                         text="يرجى ادخال كلمة المرور  "
@@ -84,7 +85,7 @@ const Login = () => {
                                     />
                                 </Box>
                                 <Box className='d-flex align-items-center justify-content-end'>
-                                    <Button className="w-100" sx={{ background: '#AE965A !important', mt: 3, color: 'white !important' }} rounded>تسجيل الدخول </Button>
+                                    <Button className="w-100" sx={{ background: '#AE965A !important', mt: 3, color: 'white !important',fontWeight: 800, }} rounded>تسجيل الدخول </Button>
                                 </Box>
                                 <Typography
                                     sx={{
@@ -99,7 +100,7 @@ const Login = () => {
                         </Grid>
                         <Box my={5} className='d-flex align-items-center justify-content-end gap-3 w-100'>
                             <Box className='position-relative'
-                                sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30 })} p={1}
+                                sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30, boxShadow: '0px 4px 4px 0px #00000040' })} p={1}
                                 px={2}>
                                 <Box sx={{
                                     position: 'absolute',

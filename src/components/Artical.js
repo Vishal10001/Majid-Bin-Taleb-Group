@@ -94,10 +94,9 @@ const Artical = () => {
                     <Box mt={5} className='d-flex flex-column gap-5'>
                         {Array.from({ length: 8 }).map(() =>
                             <Box
-                                onClick={() => navigate('/blog')}
                                 className="d-flex flex-wrap align-items-streach justify-content-between bg-white" sx={{ borderTopRightRadius: isMobile ? '0px' : '50px' }}>
-                                <Box sx={{ width: isMobile ? '100%' : 'auto' }}>
-                                    <img style={{ maxHeight: '200px', borderBottomRightRadius: '60px' }} src={articalImg} alt="" />
+                                <Box sx={{ width: isMobile ? '100%' : 'auto', overflow: 'hidden' }}>
+                                    <img className="artical-img" style={{ maxHeight: '200px', borderBottomRightRadius: '100px' }} src={articalImg} alt="" />
                                 </Box>
                                 <Box className="d-flex flex-column justify-content-between gap-3" p={3}>
                                     <Box sx={{ maxWidth: '700px' }}>
@@ -126,7 +125,7 @@ const Artical = () => {
                                             text="ماهي القيمة المضافة باندماج الشركات الشكلي عندما قامت مطبعة  ماهي القيمة المضافة باندماج الشركات الشكلي عندما قامت مطبعة "
                                         />
                                     </Box>
-                                    <Box className="d-flex align-items-center justify-content-end">
+                                    <Box onClick={() => navigate('/blog')} className="d-flex align-items-center justify-content-end">
                                         <WestIcon sx={{ fill: '#AE965A' }} />
                                         <Typography className='text-end'
                                             sx={{
@@ -144,7 +143,7 @@ const Artical = () => {
             </Container>
             <Box my={5} className='d-flex position-absolute align-items-center justify-content-end gap-3' sx={{ top: '50%', right: 0 }}>
                 <Box className='position-relative'
-                    sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30 })} p={1}
+                    sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30 ,boxShadow: '0px 4px 4px 0px #00000040'})} p={1}
                     px={2}>
                     <Box sx={{
                         position: 'absolute',
