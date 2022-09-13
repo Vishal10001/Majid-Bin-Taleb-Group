@@ -31,7 +31,7 @@ const InputWithLabel = (props) => {
 
     return (
         <Box className=' w-100' {...restProps} px={2} pt={1} sx={{
-            borderBottomRightRadius: '30px', background: 'white',
+            borderBottomRightRadius: '46px', background: 'white',
             boxShadow: '0px 10px 15px 0px rgba(0, 0, 0, 0.1)', ...sx
         }}>
             <InputLabel sx={{ fontSize: '0.8rem', color: '#AE965A' }} className='text-end' htmlFor="component-simple">
@@ -46,7 +46,7 @@ const InputWithLabel = (props) => {
                     required={required}
                     id="component-simple"
                     disableUnderline={true}
-                    sx={{ '& .MuiInputBase-input ': { textAlign: 'end' }, ...inputSx }}
+                    sx={{ '& .MuiInputBase-input ': { textAlign: 'end', pr: 2 }, ...inputSx }}
                     onChange={handleChange('password')}
                     startAdornment={
                         <InputAdornment position="start">

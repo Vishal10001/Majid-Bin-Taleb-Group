@@ -74,6 +74,10 @@
     color: white !important;
 }
 
+.otpInput:focus {
+    border-bottom: 3px solid #39281F !important;
+}
+
 .PrivatePickersFadeTransitionGroup-root {
     color: #AE965A;
     font-weight: 500;

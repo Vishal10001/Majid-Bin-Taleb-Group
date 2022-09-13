@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, FormControl, MenuItem, Select, Container } from '@mui/material';
 import WestIcon from '@mui/icons-material/West';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useNavigate } from "react-router-dom";
 
 import articalImg from "../assets/articalImg.jpg";
@@ -36,16 +37,19 @@ const Artical = () => {
                     <Box className="d-flex align-items-center gap-3">
                         <FormControl sx={{ m: 1, maxWidth: 100, width: '100%' }}>
                             <Select
-                                value={age}
                                 onChange={handleChange}
                                 displayEmpty
-                                defaultValue="10"
+                                defaultValue={10}
+                                IconComponent={() => (
+                                    <KeyboardArrowDownIcon />
+                                )}
                                 sx={{
                                     fontSize: '15px',
                                     border: '1px solid #CAC7C7',
                                     borderRadius: '30px',
                                     backgroundColor: '#fff',
                                     color: '#AE965A',
+                                    flexDirection: 'row-reverse',
                                     '& legend': { display: 'none' }, '& fieldset': {
                                         top: 0,
                                         color: '#AE965A',
@@ -56,13 +60,13 @@ const Artical = () => {
                                         borderColor: '#CAC7C7 !important'
                                     },
                                     '& .MuiSelect-select': {
-                                        paddingLeft: '25px !important',
-                                        paddingRight: '14px !important',
-                                        py: '10px'
+                                        paddingLeft: '14px !important',
+                                        paddingRight: '25px !important',
+                                        py: '10px',
                                     },
                                     '& .MuiSvgIcon-root': {
-                                        left: 4,
-                                        fill: '#AE965A'
+                                        fill: '#AE965A',
+                                        pl: 1
                                     }
                                 }}
                             >
@@ -78,7 +82,7 @@ const Artical = () => {
                         sx={{
                             fontSize: '23px',
                             fontWeight: 700,
-                            color: '#39281F'
+                            color: '#39281F',
                         }}
                         text='جميع المقالات'
                     />
@@ -143,7 +147,7 @@ const Artical = () => {
             </Container>
             <Box my={5} className='d-flex position-absolute align-items-center justify-content-end gap-3' sx={{ top: '50%', right: 0 }}>
                 <Box className='position-relative'
-                    sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30 ,boxShadow: '0px 4px 4px 0px #00000040'})} p={1}
+                    sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30, boxShadow: '0px 4px 4px 0px #00000040' })} p={1}
                     px={2}>
                     <Box sx={{
                         position: 'absolute',

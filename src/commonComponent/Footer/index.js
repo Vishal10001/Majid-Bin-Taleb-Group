@@ -3,9 +3,12 @@ import { Box, Container } from '@mui/material';
 import { LinkedIn, LocalPostOffice } from '@mui/icons-material';
 import Twitter from '@mui/icons-material/Twitter';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { useNavigate } from "react-router-dom";
 import Typography from '../Typography';
+import { footerList } from '../../utils';
 
 const Footer = (props) => {
+    let navigate = useNavigate();
     const { sx, hideContent, showSecondFooter, children } = props;
     return (
         <Box mt={25} className="footer-sub" sx={{ borderTop: 2, borderColor: '#AE965A', ...sx }}>
@@ -23,12 +26,11 @@ const Footer = (props) => {
                         <Box mt={3} className='d-flex align-items-start justify-content-between'>
                             <Box className='d-flex align-items-end flex-column gap-4'>
                                 <Typography text='القائمة ' sx={{ color: '#39281F', fontSize: '23px', fontWeight: 700 }} />
-                                <Typography text='الرئيسية ' sx={{ color: '#000000', fontWeight: 400 }} />
-                                <Typography text='من نحن ' sx={{ color: '#000000', fontWeight: 400 }} />
-                                <Typography text='مجالات الممارسة  ' sx={{ color: '#000000', fontWeight: 400 }} />
-                                <Typography text='فريق العمل ' sx={{ color: '#000000', fontWeight: 400 }} />
-                                <Typography text='عملاؤنا  ' sx={{ color: '#000000', fontWeight: 400 }} />
-                                <Typography text='انضم الينا ' sx={{ color: '#000000', fontWeight: 400 }} />
+                                {footerList?.map((item, index) =>
+                                    <Box onClick={() => navigate(item?.pathName)}>
+                                        <Typography text={item?.navName} sx={{ color: window?.location?.pathname.includes(item?.pathName) ? '#AE965A' : '#000000', fontWeight: 400 }} />
+                                    </Box>
+                                )}
                             </Box>
                             <Box className='d-flex align-items-center flex-column gap-4'>
                                 <Typography text='تابعنا على ' sx={{ color: '#39281F', fontSize: '23px', fontWeight: 700 }} />

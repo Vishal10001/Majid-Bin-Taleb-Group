@@ -4,11 +4,13 @@ import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from '@mui/icons-material/Search';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
+    const { sx } = props;
     return (<TextField
         InputLabelProps={{ shrink: false }}
         variant="outlined"
         sx={{
+            width: '290px',
             '& .MuiInputBase-root': {
                 pl: 0,
             },
@@ -23,7 +25,9 @@ const SearchBar = () => {
             },
             '& .MuiOutlinedInput-input': {
                 padding: '7px 10px 7px 0',
-            }
+                textAlign: 'end'
+            },
+            ...sx
         }}
         className='text-end'
         placeholder='نص العنصر النائب'

@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { Grid, Box, Container, TextField } from '@mui/material';
 import diamond from "../assets/diamond.svg";
 import Typography from '../commonComponent/Typography';
-import HammerImg from '../assets/law-justice-bg.jpg';
+import HammerImg from '../assets/hammer2.jpg';
 import Button from '../commonComponent/Button';
-import InputWithLabel from '../commonComponent/InputWithLabel';
 import Footer from '../commonComponent/Footer';
 import { mobileAndTabletCheck } from '../utils';
 import whatsappIcon from "../assets/whatsappIcon.svg";
@@ -14,9 +13,38 @@ const sampleText = ` هل تتذكر كلمة المرور ؟ <span class='light
 
 const ResetPasswordSecond = () => {
 
-    const [otp, setOtp] = useState({});
+    const [otp, setOtp] = useState({ value: '', otp1: "", otp2: "", otp3: "", otp4: "", otp5: "", disable: true });
 
-    const handleChange = (e, key) => setOtp({ ...otp, [key]: e?.target?.value });
+    const handleChange = (value1, e) => {
+        let { value } = e?.target;
+        value = value?.replace(/[^0-9]/g, '');
+
+        setOtp({ ...otp, [value1]: value });
+    }
+
+    const handleSubmit = (event) => {
+        const data = new FormData(event.target);
+        console.log(otp);
+        event.preventDefault();
+    }
+
+    const inputfocus = (elmnt) => {
+        if (elmnt.key === "Delete" || elmnt.key === "Backspace") {
+            const next = elmnt.target.tabIndex - 2;
+            if (next > -1) {
+
+                elmnt.target.form.elements[next].focus()
+            }
+        } else {
+            console.log("next");
+
+            const next = elmnt.target.tabIndex;
+            if (next < 5) {
+                elmnt.target.form.elements[next].focus()
+            }
+        }
+
+    }
 
     return (
         <>
@@ -54,157 +82,126 @@ const ResetPasswordSecond = () => {
                                                 className="text-end"
                                                 text="ادخل رمز التحقق "
                                             />
-                                            <Box mt={2} className="d-flex align-items-center justify-content-around">
-                                                <TextField
-                                                    onChange={(e) => handleChange(e, 'value1')}
-                                                    sx={{
-                                                        '& legend': { display: 'none' }, '& fieldset': { top: 0 },
-                                                        '& .MuiOutlinedInput-notchedOutline': {
-                                                            border: '0px !important',
-                                                        },
-                                                        color: '#39281F',
-                                                        fontWeight: 600,
-                                                        fontSize: '18px',
-                                                        minHeight: '100px',
-                                                        maxHeight: '110px',
-                                                        maxWidth: '85px',
-                                                        height: '100%',
-                                                        width: '100%',
-                                                        borderRadius: '20px',
-                                                        boxShadow: otp?.value1 ? '0px 2px 12px 0px #0000001A' : '0px 2px 12px 0px #0000001A inset',
-                                                        border: 0,
-                                                        outline: 'none',
+                                            <form onSubmit={handleSubmit}>
+                                                <div className="otpContainer d-flex align-items-center justify-content-between">
+                                                    <Box className="w-100 h-100" py={4} px={2} display='flex' sx={{
+                                                        width: 'fit-content',
                                                         background: otp?.value1 ? 'white' : '#CAC7C7',
-                                                        '& .MuiInputBase-input': {
-                                                            textAlign: 'center',
-                                                            '&:focus': {
-                                                                borderBottom: '3px solid #39281F',
-                                                            }
-                                                        },
-                                                        '& .MuiInputBase-root ': {
-                                                            height: '100%',
-                                                            width: '100%',
-                                                            paddingLeft: '20px',
-                                                            paddingRight: '20px'
-                                                        },
-                                                        '& .Mui-focused': {
-                                                            background: 'white !important',
-                                                            borderRadius: '20px',
-                                                        }
-                                                    }}
-                                                />
-                                                <TextField
-                                                    onChange={(e) => handleChange(e, 'value2')}
-                                                    sx={{
-                                                        '& legend': { display: 'none' }, '& fieldset': { top: 0 },
-                                                        '& .MuiOutlinedInput-notchedOutline': {
-                                                            border: '0px !important',
-                                                        },
-                                                        color: '#39281F',
-                                                        fontWeight: 600,
-                                                        fontSize: '18px',
-                                                        minHeight: '100px',
-                                                        maxHeight: '110px',
-                                                        maxWidth: '85px',
-                                                        height: '100%',
-                                                        width: '100%',
                                                         borderRadius: '20px',
-                                                        boxShadow: otp?.value2 ? '0px 2px 12px 0px #0000001A' : '0px 2px 12px 0px #0000001A inset',
-                                                        border: 0,
-                                                        outline: 'none',
+                                                        maxWidth: '84px',
+                                                        maxHeight: '110px',
+                                                        boxShadow: otp?.value1 ? '0px 2px 12px 0px #0000001A' : '0px 2px 12px 0px #0000001A inset',
+                                                    }}>
+                                                        <input
+                                                            name="otp1"
+                                                            type="text"
+                                                            autoComplete="off"
+                                                            className="otpInput"
+                                                            value={otp.otp1}
+                                                            onChange={e => handleChange("otp1", e)}
+                                                            tabIndex="1" maxLength="1" onKeyUp={e => inputfocus(e)}
+                                                            style={{
+                                                                color: '#39281F',
+                                                                fontWeight: 600,
+                                                                fontSize: '18px',
+                                                                height: '100%',
+                                                                width: '100%',
+                                                                background: otp?.value1 ? 'white' : '#CAC7C7',
+                                                                border: 0,
+                                                                outline: 'none',
+                                                                textAlign: 'center',
+                                                            }}
+                                                        />
+                                                    </Box>
+                                                    <Box className="w-100 h-100" py={4} px={2} display='flex' sx={{
+                                                        width: 'fit-content',
                                                         background: otp?.value2 ? 'white' : '#CAC7C7',
-                                                        '& .MuiInputBase-input': {
-                                                            textAlign: 'center',
-                                                            '&:focus': {
-                                                                borderBottom: '3px solid #39281F',
-                                                            }
-                                                        },
-                                                        '& .MuiInputBase-root ': {
-                                                            height: '100%',
-                                                            width: '100%',
-                                                            paddingLeft: '20px',
-                                                            paddingRight: '20px'
-                                                        },
-                                                        '& .Mui-focused': {
-                                                            background: 'white !important',
-                                                            borderRadius: '20px',
-                                                        }
-                                                    }}
-                                                />
-                                                <TextField
-                                                    onChange={(e) => handleChange(e, 'value3')}
-                                                    sx={{
-                                                        '& legend': { display: 'none' }, '& fieldset': { top: 0 },
-                                                        '& .MuiOutlinedInput-notchedOutline': {
-                                                            border: '0px !important',
-                                                        },
-                                                        color: '#39281F',
-                                                        fontWeight: 600,
-                                                        fontSize: '18px',
-                                                        minHeight: '100px',
-                                                        maxHeight: '110px',
-                                                        maxWidth: '85px',
-                                                        height: '100%',
-                                                        width: '100%',
                                                         borderRadius: '20px',
-                                                        boxShadow: otp?.value3 ? '0px 2px 12px 0px #0000001A' : '0px 2px 12px 0px #0000001A inset',
-                                                        border: 0,
-                                                        outline: 'none',
+                                                        maxWidth: '84px',
+                                                        maxHeight: '110px',
+                                                        boxShadow: otp?.value2 ? '0px 2px 12px 0px #0000001A' : '0px 2px 12px 0px #0000001A inset',
+                                                    }}>
+                                                        <input
+                                                            name="otp2"
+                                                            type="text"
+                                                            autoComplete="off"
+                                                            className="otpInput"
+                                                            value={otp.otp2}
+                                                            onChange={e => handleChange("otp2", e)}
+                                                            tabIndex="2" maxLength="1" onKeyUp={e => inputfocus(e)}
+                                                            style={{
+                                                                color: '#39281F',
+                                                                fontWeight: 600,
+                                                                fontSize: '18px',
+                                                                height: '100%',
+                                                                width: '100%',
+                                                                background: otp?.value2 ? 'white' : '#CAC7C7',
+                                                                border: 0,
+                                                                outline: 'none',
+                                                                textAlign: 'center',
+                                                            }}
+                                                        />
+                                                    </Box>
+                                                    <Box className="w-100 h-100" py={4} px={2} display='flex' sx={{
+                                                        width: 'fit-content',
                                                         background: otp?.value3 ? 'white' : '#CAC7C7',
-                                                        '& .MuiInputBase-input': {
-                                                            textAlign: 'center',
-                                                            '&:focus': {
-                                                                borderBottom: '3px solid #39281F',
-                                                            }
-                                                        },
-                                                        '& .MuiInputBase-root ': {
-                                                            height: '100%',
-                                                            width: '100%',
-                                                            paddingLeft: '20px',
-                                                            paddingRight: '20px'
-                                                        },
-                                                        '& .Mui-focused': {
-                                                            background: 'white !important',
-                                                            borderRadius: '20px',
-                                                        }
-                                                    }}
-                                                />
-                                                <TextField
-                                                    onChange={(e) => handleChange(e, 'value4')}
-                                                    sx={{
-                                                        '& legend': { display: 'none' }, '& fieldset': { top: 0 },
-                                                        '& .MuiOutlinedInput-notchedOutline': {
-                                                            border: '0px !important',
-                                                        },
-                                                        minHeight: '100px',
-                                                        maxHeight: '110px',
-                                                        maxWidth: '85px',
-                                                        height: '100%',
-                                                        width: '100%',
                                                         borderRadius: '20px',
-                                                        boxShadow: otp?.value4 ? '0px 2px 12px 0px #0000001A' : '0px 2px 12px 0px #0000001A inset',
-                                                        border: 0,
-                                                        outline: 'none',
+                                                        maxWidth: '84px',
+                                                        maxHeight: '110px',
+                                                        boxShadow: otp?.value3 ? '0px 2px 12px 0px #0000001A' : '0px 2px 12px 0px #0000001A inset',
+                                                    }}>
+                                                        <input
+                                                            name="otp3"
+                                                            type="text"
+                                                            autoComplete="off"
+                                                            className="otpInput"
+                                                            value={otp.otp3}
+                                                            onChange={e => handleChange("otp3", e)}
+                                                            tabIndex="3" maxLength="1" onKeyUp={e => inputfocus(e)}
+                                                            style={{
+                                                                color: '#39281F',
+                                                                fontWeight: 600,
+                                                                fontSize: '18px',
+                                                                height: '100%',
+                                                                width: '100%',
+                                                                background: otp?.value3 ? 'white' : '#CAC7C7',
+                                                                border: 0,
+                                                                outline: 'none',
+                                                                textAlign: 'center',
+                                                            }}
+                                                        />
+                                                    </Box>
+                                                    <Box className="w-100 h-100" py={4} px={2} display='flex' sx={{
+                                                        width: 'fit-content',
                                                         background: otp?.value4 ? 'white' : '#CAC7C7',
-                                                        '& .MuiInputBase-input': {
-                                                            textAlign: 'center',
-                                                            '&:focus': {
-                                                                borderBottom: '3px solid #39281F',
-                                                            }
-                                                        },
-                                                        '& .MuiInputBase-root ': {
-                                                            height: '100%',
-                                                            width: '100%',
-                                                            paddingLeft: '20px',
-                                                            paddingRight: '20px'
-                                                        },
-                                                        '& .Mui-focused': {
-                                                            background: 'white !important',
-                                                            borderRadius: '20px',
-                                                        }
-                                                    }}
-                                                />
-                                            </Box>
+                                                        borderRadius: '20px',
+                                                        maxWidth: '84px',
+                                                        maxHeight: '110px',
+                                                        boxShadow: otp?.value4 ? '0px 2px 12px 0px #0000001A' : '0px 2px 12px 0px #0000001A inset',
+                                                    }}>
+                                                        <input
+                                                            name="otp4"
+                                                            type="text"
+                                                            autoComplete="off"
+                                                            className="otpInput"
+                                                            value={otp.otp4}
+                                                            onChange={e => handleChange("otp4", e)}
+                                                            tabIndex="4" maxLength="1" onKeyUp={e => inputfocus(e)}
+                                                            style={{
+                                                                color: '#39281F',
+                                                                fontWeight: 600,
+                                                                fontSize: '18px',
+                                                                height: '100%',
+                                                                width: '100%',
+                                                                background: otp?.value4 ? 'white' : '#CAC7C7',
+                                                                border: 0,
+                                                                outline: 'none',
+                                                                textAlign: 'center',
+                                                            }}
+                                                        />
+                                                    </Box>
+                                                </div>
+                                            </form>
                                         </Box>
                                     </Box>
                                     <Box className="w-100 d-flex gap-2 flex-column justify-content-end">
@@ -243,7 +240,7 @@ const ResetPasswordSecond = () => {
                     <Box my={15}>
                         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
                             <Grid item xs={12} sm={5} md={4.5}>
-                                <img src={HammerImg} alt="" className='h-100 w-100' style={{ borderBottomRightRadius: '40px' }} />
+                                <img src={HammerImg} alt="" className='h-100 w-100' style={{ borderBottomRightRadius: '90px' }} />
                             </Grid>
                             <Grid item xs={0} sm={2} md={2} />
                             <Grid className='gap-4 d-flex flex-column' item xs={12} sm={5} md={4.5}>
@@ -268,157 +265,126 @@ const ResetPasswordSecond = () => {
                                             className="text-end"
                                             text="ادخل رمز التحقق "
                                         />
-                                        <Box mt={2} className="d-flex align-items-center justify-content-around">
-                                            <TextField
-                                                onChange={(e) => handleChange(e, 'value1')}
-                                                sx={{
-                                                    '& legend': { display: 'none' }, '& fieldset': { top: 0 },
-                                                    '& .MuiOutlinedInput-notchedOutline': {
-                                                        border: '0px !important',
-                                                    },
-                                                    color: '#39281F',
-                                                    fontWeight: 600,
-                                                    fontSize: '18px',
-                                                    minHeight: '100px',
-                                                    maxHeight: '110px',
-                                                    maxWidth: '85px',
-                                                    height: '100%',
-                                                    width: '100%',
-                                                    borderRadius: '20px',
-                                                    boxShadow: otp?.value1 ? '0px 2px 12px 0px #0000001A' : '0px 2px 12px 0px #0000001A inset',
-                                                    border: 0,
-                                                    outline: 'none',
+                                        <form onSubmit={handleSubmit}>
+                                            <div className="otpContainer d-flex align-items-center justify-content-between">
+                                                <Box className="w-100 h-100" py={4} px={2} display='flex' sx={{
+                                                    width: 'fit-content',
                                                     background: otp?.value1 ? 'white' : '#CAC7C7',
-                                                    '& .MuiInputBase-input': {
-                                                        textAlign: 'center',
-                                                        '&:focus': {
-                                                            borderBottom: '3px solid #39281F',
-                                                        }
-                                                    },
-                                                    '& .MuiInputBase-root ': {
-                                                        height: '100%',
-                                                        width: '100%',
-                                                        paddingLeft: '20px',
-                                                        paddingRight: '20px'
-                                                    },
-                                                    '& .Mui-focused': {
-                                                        background: 'white !important',
-                                                        borderRadius: '20px',
-                                                    }
-                                                }}
-                                            />
-                                            <TextField
-                                                onChange={(e) => handleChange(e, 'value2')}
-                                                sx={{
-                                                    '& legend': { display: 'none' }, '& fieldset': { top: 0 },
-                                                    '& .MuiOutlinedInput-notchedOutline': {
-                                                        border: '0px !important',
-                                                    },
-                                                    color: '#39281F',
-                                                    fontWeight: 600,
-                                                    fontSize: '18px',
-                                                    minHeight: '100px',
-                                                    maxHeight: '110px',
-                                                    maxWidth: '85px',
-                                                    height: '100%',
-                                                    width: '100%',
                                                     borderRadius: '20px',
-                                                    boxShadow: otp?.value2 ? '0px 2px 12px 0px #0000001A' : '0px 2px 12px 0px #0000001A inset',
-                                                    border: 0,
-                                                    outline: 'none',
+                                                    maxWidth: '84px',
+                                                    maxHeight: '110px',
+                                                    boxShadow: otp?.value1 ? '0px 2px 12px 0px #0000001A' : '0px 2px 12px 0px #0000001A inset',
+                                                }}>
+                                                    <input
+                                                        name="otp1"
+                                                        type="text"
+                                                        autoComplete="off"
+                                                        className="otpInput"
+                                                        value={otp.otp1}
+                                                        onChange={e => handleChange("otp1", e)}
+                                                        tabIndex="1" maxLength="1" onKeyUp={e => inputfocus(e)}
+                                                        style={{
+                                                            color: '#39281F',
+                                                            fontWeight: 600,
+                                                            fontSize: '18px',
+                                                            height: '100%',
+                                                            width: '100%',
+                                                            background: otp?.value1 ? 'white' : '#CAC7C7',
+                                                            border: 0,
+                                                            outline: 'none',
+                                                            textAlign: 'center',
+                                                        }}
+                                                    />
+                                                </Box>
+                                                <Box className="w-100 h-100" py={4} px={2} display='flex' sx={{
+                                                    width: 'fit-content',
                                                     background: otp?.value2 ? 'white' : '#CAC7C7',
-                                                    '& .MuiInputBase-input': {
-                                                        textAlign: 'center',
-                                                        '&:focus': {
-                                                            borderBottom: '3px solid #39281F',
-                                                        }
-                                                    },
-                                                    '& .MuiInputBase-root ': {
-                                                        height: '100%',
-                                                        width: '100%',
-                                                        paddingLeft: '20px',
-                                                        paddingRight: '20px'
-                                                    },
-                                                    '& .Mui-focused': {
-                                                        background: 'white !important',
-                                                        borderRadius: '20px',
-                                                    }
-                                                }}
-                                            />
-                                            <TextField
-                                                onChange={(e) => handleChange(e, 'value3')}
-                                                sx={{
-                                                    '& legend': { display: 'none' }, '& fieldset': { top: 0 },
-                                                    '& .MuiOutlinedInput-notchedOutline': {
-                                                        border: '0px !important',
-                                                    },
-                                                    color: '#39281F',
-                                                    fontWeight: 600,
-                                                    fontSize: '18px',
-                                                    minHeight: '100px',
-                                                    maxHeight: '110px',
-                                                    maxWidth: '85px',
-                                                    height: '100%',
-                                                    width: '100%',
                                                     borderRadius: '20px',
-                                                    boxShadow: otp?.value3 ? '0px 2px 12px 0px #0000001A' : '0px 2px 12px 0px #0000001A inset',
-                                                    border: 0,
-                                                    outline: 'none',
+                                                    maxWidth: '84px',
+                                                    maxHeight: '110px',
+                                                    boxShadow: otp?.value2 ? '0px 2px 12px 0px #0000001A' : '0px 2px 12px 0px #0000001A inset',
+                                                }}>
+                                                    <input
+                                                        name="otp2"
+                                                        type="text"
+                                                        autoComplete="off"
+                                                        className="otpInput"
+                                                        value={otp.otp2}
+                                                        onChange={e => handleChange("otp2", e)}
+                                                        tabIndex="2" maxLength="1" onKeyUp={e => inputfocus(e)}
+                                                        style={{
+                                                            color: '#39281F',
+                                                            fontWeight: 600,
+                                                            fontSize: '18px',
+                                                            height: '100%',
+                                                            width: '100%',
+                                                            background: otp?.value2 ? 'white' : '#CAC7C7',
+                                                            border: 0,
+                                                            outline: 'none',
+                                                            textAlign: 'center',
+                                                        }}
+                                                    />
+                                                </Box>
+                                                <Box className="w-100 h-100" py={4} px={2} display='flex' sx={{
+                                                    width: 'fit-content',
                                                     background: otp?.value3 ? 'white' : '#CAC7C7',
-                                                    '& .MuiInputBase-input': {
-                                                        textAlign: 'center',
-                                                        '&:focus': {
-                                                            borderBottom: '3px solid #39281F',
-                                                        }
-                                                    },
-                                                    '& .MuiInputBase-root ': {
-                                                        height: '100%',
-                                                        width: '100%',
-                                                        paddingLeft: '20px',
-                                                        paddingRight: '20px'
-                                                    },
-                                                    '& .Mui-focused': {
-                                                        background: 'white !important',
-                                                        borderRadius: '20px',
-                                                    }
-                                                }}
-                                            />
-                                            <TextField
-                                                onChange={(e) => handleChange(e, 'value4')}
-                                                sx={{
-                                                    '& legend': { display: 'none' }, '& fieldset': { top: 0 },
-                                                    '& .MuiOutlinedInput-notchedOutline': {
-                                                        border: '0px !important',
-                                                    },
-                                                    minHeight: '100px',
-                                                    maxHeight: '110px',
-                                                    maxWidth: '85px',
-                                                    height: '100%',
-                                                    width: '100%',
                                                     borderRadius: '20px',
-                                                    boxShadow: otp?.value4 ? '0px 2px 12px 0px #0000001A' : '0px 2px 12px 0px #0000001A inset',
-                                                    border: 0,
-                                                    outline: 'none',
+                                                    maxWidth: '84px',
+                                                    maxHeight: '110px',
+                                                    boxShadow: otp?.value3 ? '0px 2px 12px 0px #0000001A' : '0px 2px 12px 0px #0000001A inset',
+                                                }}>
+                                                    <input
+                                                        name="otp3"
+                                                        type="text"
+                                                        autoComplete="off"
+                                                        className="otpInput"
+                                                        value={otp.otp3}
+                                                        onChange={e => handleChange("otp3", e)}
+                                                        tabIndex="3" maxLength="1" onKeyUp={e => inputfocus(e)}
+                                                        style={{
+                                                            color: '#39281F',
+                                                            fontWeight: 600,
+                                                            fontSize: '18px',
+                                                            height: '100%',
+                                                            width: '100%',
+                                                            background: otp?.value3 ? 'white' : '#CAC7C7',
+                                                            border: 0,
+                                                            outline: 'none',
+                                                            textAlign: 'center',
+                                                        }}
+                                                    />
+                                                </Box>
+                                                <Box className="w-100 h-100" py={4} px={2} display='flex' sx={{
+                                                    width: 'fit-content',
                                                     background: otp?.value4 ? 'white' : '#CAC7C7',
-                                                    '& .MuiInputBase-input': {
-                                                        textAlign: 'center',
-                                                        '&:focus': {
-                                                            borderBottom: '3px solid #39281F',
-                                                        }
-                                                    },
-                                                    '& .MuiInputBase-root ': {
-                                                        height: '100%',
-                                                        width: '100%',
-                                                        paddingLeft: '20px',
-                                                        paddingRight: '20px'
-                                                    },
-                                                    '& .Mui-focused': {
-                                                        background: 'white !important',
-                                                        borderRadius: '20px',
-                                                    }
-                                                }}
-                                            />
-                                        </Box>
+                                                    borderRadius: '20px',
+                                                    maxWidth: '84px',
+                                                    maxHeight: '110px',
+                                                    boxShadow: otp?.value4 ? '0px 2px 12px 0px #0000001A' : '0px 2px 12px 0px #0000001A inset',
+                                                }}>
+                                                    <input
+                                                        name="otp4"
+                                                        type="text"
+                                                        autoComplete="off"
+                                                        className="otpInput"
+                                                        value={otp.otp4}
+                                                        onChange={e => handleChange("otp4", e)}
+                                                        tabIndex="4" maxLength="1" onKeyUp={e => inputfocus(e)}
+                                                        style={{
+                                                            color: '#39281F',
+                                                            fontWeight: 600,
+                                                            fontSize: '18px',
+                                                            height: '100%',
+                                                            width: '100%',
+                                                            background: otp?.value4 ? 'white' : '#CAC7C7',
+                                                            border: 0,
+                                                            outline: 'none',
+                                                            textAlign: 'center',
+                                                        }}
+                                                    />
+                                                </Box>
+                                            </div>
+                                        </form>
                                     </Box>
                                 </Box>
                                 <Box className="w-100 d-flex gap-2 flex-column justify-content-end">

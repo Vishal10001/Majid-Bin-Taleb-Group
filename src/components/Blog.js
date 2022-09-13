@@ -29,7 +29,7 @@ const Blog = () => {
                 >
                     <Box className="d-flex align-items-start justify-content-between">
                         <Button size='small' rounded sx={(theme) => ({
-                            maxHeight: '40px',
+                            // maxHeight: '40px',
                             height: '100%',
                             backgroundColor: theme.palette.secondary.main,
                             color: theme.palette.white[100],
@@ -135,7 +135,7 @@ const Blog = () => {
                                 </Box>
                             </Grid>
                         </Grid>
-                        <Box>
+                        <Box mt={3}>
                             <Button size='small' rounded sx={(theme) => ({
                                 maxHeight: '50px',
                                 height: '100%',

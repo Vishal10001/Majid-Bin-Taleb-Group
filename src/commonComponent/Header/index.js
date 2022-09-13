@@ -87,7 +87,7 @@ const Header = () => {
                             >
                                 <Box sx={{ flexGrow: 1, height: '100%', display: { xs: 'none', md: 'flex' } }}>
                                     {navList.map((page, pageIndex) => (
-                                        <Button
+                                        <Box
                                             key={page?.navName}
                                             sx={(theme) => ({
                                                 borderRadius: 0,
@@ -96,12 +96,15 @@ const Header = () => {
                                                 backgroundColor: 'transparent !important',
                                                 color: '#39281F',
                                                 fontWeight: 400,
-                                                borderBottom: pageIndex === 0 ? '3px solid #39281F' : '',
+                                                cursor: 'pointer',
+                                                px: 2,
+                                                borderBottom: window?.location?.pathname.includes(page?.pathName) ? '3px solid #39281F' : '',
                                             })}
-                                            onClick={() => navigate('')}
+                                            className="d-flex align-items-center"
+                                            onClick={() => navigate(page?.pathName)}
                                         >
                                             {page?.navName}
-                                        </Button>
+                                        </Box>
                                     ))}
                                 </Box>
                             </Box>

@@ -450,7 +450,7 @@ const Home = () => {
                                             <Typography text='لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي  '
                                                 sx={{ color: '#39281F', fontSize: '17px', fontWeight: 700 }} />
                                         </Box>
-                                        <Box className="d-flex align-items-center justify-content-end" mt={2}>
+                                        <Box className="d-flex align-items-center gap-2 justify-content-end" mt={2}>
                                             <Typography text='فبراير, 2022'
                                                 sx={{ color: '#CAC7C7', fontSize: '14px', fontWeight: 500 }} />
                                             <CalendarMonthIcon sx={{ fill: '#CAC7C7' }} />
@@ -465,7 +465,7 @@ const Home = () => {
                                             <Typography text='لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي  '
                                                 sx={{ color: '#39281F', fontSize: '17px', fontWeight: 700 }} />
                                         </Box>
-                                        <Box className="d-flex align-items-center justify-content-end" mt={2}>
+                                        <Box className="d-flex align-items-center gap-2 justify-content-end" mt={2}>
                                             <Typography text='فبراير, 2022'
                                                 sx={{ color: '#CAC7C7', fontSize: '14px', fontWeight: 500 }} />
                                             <CalendarMonthIcon sx={{ fill: '#CAC7C7' }} />
@@ -480,7 +480,7 @@ const Home = () => {
                                             <Typography text='لوريم إيبسوم(Lorem Ipsum) هو ببساطة نص شكلي  '
                                                 sx={{ color: '#39281F', fontSize: '17px', fontWeight: 700 }} />
                                         </Box>
-                                        <Box className="d-flex align-items-center justify-content-end" mt={2}>
+                                        <Box className="d-flex align-items-center gap-2 justify-content-end" mt={2}>
                                             <Typography text='فبراير, 2022'
                                                 sx={{ color: '#CAC7C7', fontSize: '14px', fontWeight: 500 }} />
                                             <CalendarMonthIcon sx={{ fill: '#CAC7C7' }} />

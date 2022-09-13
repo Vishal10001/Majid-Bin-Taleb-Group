@@ -5,7 +5,7 @@ import diamond from "../assets/diamond.svg";
 import Typography from '../commonComponent/Typography';
 import whatsappIcon from "../assets/whatsappIcon.svg";
 import Footer from '../commonComponent/Footer';
-import HammerImg from '../assets/law-justice-bg.jpg';
+import HammerImg from '../assets/hammer2.jpg';
 import Button from '../commonComponent/Button';
 import { mobileAndTabletCheck } from '../utils';
 import InputWithLabel from '../commonComponent/InputWithLabel';
@@ -31,7 +31,7 @@ const SignUp = () => {
                     <Box mt={15}>
                         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
                             <Grid item xs={12} sm={5} md={4.5}>
-                                <img src={HammerImg} alt="" className='h-100 w-100' style={{ borderBottomRightRadius: '40px' }} />
+                                <img src={HammerImg} alt="" className='h-100 w-100' style={{ borderBottomRightRadius: '90px' }} />
                             </Grid>
                             <Grid item xs={0} sm={2} md={2} />
                             <Grid className='gap-3 d-flex flex-column' item xs={12} sm={5} md={4.5}>

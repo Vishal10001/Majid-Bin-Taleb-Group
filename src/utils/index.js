@@ -10,7 +10,7 @@ export const mobileAndTabletCheck = () => {
 export const navList = [
     {
         navName: 'تواصل معنا',
-        pathName:'contact-us'
+        pathName:'/contact-us'
     },
     {
         navName: 'انضم الينا',
@@ -18,19 +18,46 @@ export const navList = [
     },
     {
         navName: 'المدونة',
-        pathName:'contact-us'
+        pathName:'/artical'
     },
     {
         navName: 'فريق العمل',
-        pathName:'contact-us'
+        pathName:'/contact-us'
     },
     {
         navName: 'مجالات الممارسة',
-        pathName:'contact-us'
+        pathName:'/practice-areas'
     },
     {
         navName: 'من نحن',
-        pathName:'contact-us'
+        pathName:'/about-us'
+    },
+];
+
+export const footerList = [
+    {
+        navName: 'الرئيسية',
+        pathName:'/about-us'
+    },
+    {
+        navName: 'من نحن',
+        pathName:'/artical'
+    },
+    {
+        navName: 'مجالات الممارسة ',
+        pathName:'/contact-us'
+    },
+    {
+        navName: 'فريق العمل ',
+        pathName:'/practice-areas'
+    },
+    {
+        navName: 'عملاؤنا',
+        pathName:'/about-us'
+    },
+    {
+        navName: 'انضم الينا',
+        pathName:'/about-us'
     },
 ];
 

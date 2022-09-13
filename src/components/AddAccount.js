@@ -6,6 +6,9 @@ import diamond from "../assets/diamond.svg";
 import Button from "../commonComponent/Button";
 import Footer from "../commonComponent/Footer";
 import whatsappIcon from "../assets/whatsappIcon.svg";
+import LocalCityIcon from "../assets/bank-svgrepo-com.svg";
+import userOutlineIcon from "../assets/person-svgrepo-com.svg";
+import { SvgIcon } from "../commonComponent/SvgIcon";
 
 const AddAccount = () => {
 
@@ -72,7 +75,7 @@ const AddAccount = () => {
                                         },
                                     }}
                                 >
-                                    <Business />
+                                    <Business style={{ width: "35px", height: "38px" }} />
                                     <Typography sx={{ fontSize: '20px', fontWeight: 500 }} text="شركة" />
                                 </Box>
                             </Grid>
@@ -92,7 +95,7 @@ const AddAccount = () => {
                                         },
                                     }}
                                 >
-                                    <LocationCity />
+                                    <SvgIcon icon="BANK" sx={{ width: "35px", height: "35px" }} viewBox="0 0 45 45" />
                                     <Typography sx={{ fontSize: '20px', fontWeight: 500 }} text="مؤسسة" />
                                 </Box>
                             </Grid>
@@ -112,7 +115,7 @@ const AddAccount = () => {
                                         },
                                     }}
                                 >
-                                    <PermIdentityOutlined />
+                                    <SvgIcon icon="USER" sx={{ width: "35px", height: "35px" }} viewBox="0 0 45 45" />
                                     <Typography sx={{ fontSize: '20px', fontWeight: 500 }} text="فرد / مستقل  " />
                                 </Box>
                             </Grid>

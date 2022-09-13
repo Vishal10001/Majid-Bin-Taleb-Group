@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material/styles';
+import { arEG } from '@mui/material/locale';
 
 import {
   APP_BAR, BUTTON, CHECKBOX, INPUT, MENUITEM
@@ -32,4 +33,4 @@ export const THEME = createTheme({
   border: BORDER,
   spaces: SPACING,
   boxShadow: BOX_SHADOW,
-});
+}, arEG);

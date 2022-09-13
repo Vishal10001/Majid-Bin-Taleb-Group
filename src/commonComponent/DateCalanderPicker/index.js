@@ -8,6 +8,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { CalendarPicker } from '@mui/x-date-pickers/CalendarPicker';
 import { PickersDay } from '@mui/x-date-pickers/PickersDay';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import { arEG } from '@mui/material/locale';
 
 dayjs.extend(isBetweenPlugin);
 
@@ -81,7 +82,7 @@ export default function DateCalanderPicker() {
 
     return (
         <Box sx={{ borderRadius: '20px', background: 'white', boxShadow: '0px 2px 12px 0px #0000001A' }} py={1}>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <LocalizationProvider locale={arEG} dateAdapter={AdapterDayjs}>
                 {/* <StaticDatePicker
                 displayStaticWrapperAs="desktop"
                 label="Week picker"
@@ -97,6 +98,7 @@ export default function DateCalanderPicker() {
                 <CalendarPicker
                     shouldDisableDate={disableWeekends}
                     date={date}
+                    locale={arEG}
                     onChange={(newDate) => setDate(newDate)}
                 />
                 <FormControl sx={{ m: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }} className="gap-3">
