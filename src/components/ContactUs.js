@@ -38,24 +38,6 @@ const ContactUs = () => {
                     }}
                     className='flex-column'
                 >
-                    <Box mt={2} className='text-end'>
-                        <Typography text="هل لديك اي استفسار ؟ "
-                            sx={{
-                                fontWeight: 900,
-                                color: '#39281F',
-                                fontSize: '25px'
-                            }}
-                        />
-                    </Box>
-                    <Box className='text-end'>
-                        <Typography text="املأ النموذج وسيقوم فريقنا بالرد عليك في أقرب وقت  ممكن "
-                            sx={{
-                                fontWeight: 400,
-                                color: '#39281F',
-                                fontSize: '20px'
-                            }}
-                        />
-                    </Box>
                     <Container
                         maxWidth={false}
                         sx={{
@@ -65,11 +47,30 @@ const ContactUs = () => {
                         }}
                         className='flex-column'
                     >
-                        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
+                        <Grid container columns={{ xs: 12, sm: 12, md: 12 }}>
                             <Grid item xs={12} sm={6} md={6}>
                                 <ContactMap />
                             </Grid>
-                            <Grid className='gap-3 d-flex flex-column' item xs={12} sm={6} md={6}>
+                            <Grid item xs={0} sm={0} md={1} lg={1} xl={1} />
+                            <Grid className='gap-3 d-flex flex-column' item xs={12} sm={6} md={4}>
+                                <Box mt={2} className='text-end'>
+                                    <Typography text="هل لديك اي استفسار ؟ "
+                                        sx={{
+                                            fontWeight: 900,
+                                            color: '#39281F',
+                                            fontSize: '23px'
+                                        }}
+                                    />
+                                </Box>
+                                <Box className='text-end'>
+                                    <Typography text="املأ النموذج وسيقوم فريقنا بالرد عليك في أقرب وقت  ممكن "
+                                        sx={{
+                                            fontWeight: 400,
+                                            color: '#39281F',
+                                            fontSize: '17px'
+                                        }}
+                                    />
+                                </Box>
                                 <InputWithLabel required label="الاسم بالكامل " />
                                 <InputWithLabel required label="البريد الالكتروني  " />
                                 <InputWithLabel required label="الموضوع" sx={{ boxShadow: '0px 10px 15px 0px #0000001A' }} />
@@ -93,6 +94,7 @@ const ContactUs = () => {
                                 </Box>
                                 <Button sx={{ background: '#AE965A !important', mt: 3, color: 'white !important' }} rounded>ارسال </Button>
                             </Grid>
+                            <Grid item xs={0} sm={0} md={1} lg={1} xl={1} />
                         </Grid>
                     </Container>
                     <Box my={5} className='d-flex align-items-center justify-content-end gap-3 w-100'>
