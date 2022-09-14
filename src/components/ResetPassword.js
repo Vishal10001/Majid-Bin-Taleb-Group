@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, Box, Container } from '@mui/material';
+import { useNavigate, useLocation } from "react-router-dom";
 import diamond from "../assets/diamond.svg";
 import Typography from '../commonComponent/Typography';
 import HammerImg from '../assets/hammer2.jpg';
@@ -8,6 +9,7 @@ import InputWithLabel from '../commonComponent/InputWithLabel';
 import Footer from '../commonComponent/Footer';
 import { mobileAndTabletCheck } from '../utils';
 import whatsappIcon from "../assets/whatsappIcon.svg";
+import { useEffect } from 'react';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
@@ -15,6 +17,12 @@ const isMobile = mobileAndTabletCheck();
 const sampleText = `هل تتذكر كلمة المرور ؟ <span class='light-yellow fw-600'>   تسجيل الدخول  </span> `;
 
 const ResetPassword = () => {
+
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     return (
         <>
             {isMobile ?

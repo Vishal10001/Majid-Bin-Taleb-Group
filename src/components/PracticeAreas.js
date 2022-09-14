@@ -1,11 +1,13 @@
 import React from 'react';
 import { Grid, Paper, Container, Box, List } from '@mui/material';
 import { experimentalStyled as styled } from '@mui/material/styles';
+import { useNavigate, useLocation } from "react-router-dom";
 import carImg from "../assets/car.svg";
 import diamond from "../assets/diamond.svg";
 import Typography from '../commonComponent/Typography';
 import whatsappIcon from "../assets/whatsappIcon.svg";
 import Footer from '../commonComponent/Footer';
+import { useEffect } from 'react';
 
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
@@ -14,6 +16,12 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const PracticeAreas = () => {
+
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     return (
         <Box sx={{ backgroundImage: `url(${diamond})` }}>
             <Box mt={5}>

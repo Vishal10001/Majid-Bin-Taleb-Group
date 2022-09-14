@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Paper, Container, Box, FormControl, InputLabel, Input } from '@mui/material';
 import { experimentalStyled as styled } from '@mui/material/styles';
+import { useNavigate, useLocation } from "react-router-dom";
 import diamond from "../assets/diamond.svg";
 import Typography from '../commonComponent/Typography';
 import whatsappIcon from "../assets/whatsappIcon.svg";
@@ -11,6 +12,7 @@ import { mobileAndTabletCheck } from '../utils';
 import InputWithLabel from '../commonComponent/InputWithLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { RadioButtonUnchecked, CheckCircle } from '@material-ui/icons';
+import { useEffect } from 'react';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
@@ -24,6 +26,12 @@ const isMobile = mobileAndTabletCheck();
 const sampleText = `ليس لديك حساب؟ <span class='light-yellow fw-600'> سجل الآن</span> `;
 
 const AddPhoneNum = () => {
+
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     return (
         <>
             {!isMobile ?
@@ -86,7 +94,7 @@ const AddPhoneNum = () => {
                         </Grid>
                         <Box my={5} className='d-flex align-items-center justify-content-end gap-3 w-100'>
                             <Box className='position-relative'
-                                sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30 ,boxShadow: '0px 4px 4px 0px #00000040'})} p={1}
+                                sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30, boxShadow: '0px 4px 4px 0px #00000040' })} p={1}
                                 px={2}>
                                 <Box sx={{
                                     position: 'absolute',

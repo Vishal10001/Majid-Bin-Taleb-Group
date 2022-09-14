@@ -2,7 +2,7 @@ import React from "react";
 import { Box, FormControl, MenuItem, Select, Container } from '@mui/material';
 import WestIcon from '@mui/icons-material/West';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import articalImg from "../assets/articalImg.jpg";
 import SearchBar from "../commonComponent/SearchBar";
@@ -11,11 +11,17 @@ import Pagination from "../commonComponent/Pagination";
 import Footer from "../commonComponent/Footer";
 import whatsappIcon from "../assets/whatsappIcon.svg";
 import { mobileAndTabletCheck } from "../utils";
+import { useEffect } from "react";
 
 const Artical = () => {
     let navigate = useNavigate();
     const [age, setAge] = React.useState('');
     const [page, setPage] = React.useState(1);
+
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
 
     const handleChange = (event) => {
         setAge(event.target.value);

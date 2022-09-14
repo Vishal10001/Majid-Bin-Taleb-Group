@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Container, TextField } from '@mui/material';
+import { useNavigate, useLocation } from "react-router-dom";
 
 import InputWithLabel from '../commonComponent/InputWithLabel';
 import diamond from "../assets/diamond.svg";
@@ -10,8 +11,15 @@ import Footer from '../commonComponent/Footer';
 import whatsappIcon from "../assets/whatsappIcon.svg";
 import Button from '../commonComponent/Button';
 import { mobileAndTabletCheck } from '../utils';
+import { useEffect } from 'react';
 
 const Consultation = () => {
+
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     const isMobile = mobileAndTabletCheck();
     return (
         <Box sx={{

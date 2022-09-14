@@ -1,14 +1,22 @@
 import React from 'react';
 import { Box, Container } from '@mui/material';
+import { useNavigate, useLocation } from "react-router-dom";
 import { mobileAndTabletCheck } from '../utils';
 import diamond from "../assets/diamond.svg";
 import HammerImg from '../assets/law-justice-bg.jpg';
 import Typography from '../commonComponent/Typography';
 import Footer from "../commonComponent/Footer";
 import whatsappIcon from "../assets/whatsappIcon.svg";
+import { useEffect } from 'react';
 
 const AboutUs = () => {
     const isMobile = mobileAndTabletCheck();
+
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     return (
         <>
             <Box sx={{
@@ -31,7 +39,7 @@ const AboutUs = () => {
                         className='flex-column'
                     >
                         <Box className='d-flex align-items-center justify-content-end'>
-                            <Box sx={{ maxWidth: '400px', borderBottomRightRadius: 20 }} className="w-100 bg-white gap-3" p={2} pb={3}>
+                            <Box sx={{ maxWidth: '400px', borderBottomRightRadius: 20, boxShadow: '0px 30px 70px 0px #00000040' }} className="w-100 bg-white gap-3" p={2} pb={3}>
                                 <Typography text='رسالتنا ' sx={{ color: '#39281F', fontSize: '22px', fontWeight: 600, textAlign: 'end' }} />
                                 <Typography text='هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور
 هو ببساطة نص شكلي (بمعنى أن هو ببساطة نص شكلي (بمعنى أن'
@@ -45,7 +53,7 @@ const AboutUs = () => {
                             </Box>
                         </Box>
                         <Box className='d-flex align-items-center justify-content-start'>
-                            <Box sx={{ maxWidth: '400px', borderBottomRightRadius: 20 }} className="w-100 bg-white gap-3" p={2} pb={3}>
+                            <Box sx={{ maxWidth: '400px', borderBottomRightRadius: 20, boxShadow: '0px 30px 70px 0px #00000040' }} className="w-100 bg-white gap-3" p={2} pb={3}>
                                 <Typography text='لماذا نحن ؟' sx={{ color: '#39281F', fontSize: '22px', fontWeight: 600, textAlign: 'end' }} />
                                 <Typography text='هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور
 هو ببساطة نص شكلي (بمعنى أن هو ببساطة نص شكلي (بمعنى أن'
@@ -59,7 +67,7 @@ const AboutUs = () => {
                             </Box>
                         </Box>
                         <Box className='d-flex align-items-center justify-content-end'>
-                            <Box sx={{ maxWidth: '400px', borderBottomRightRadius: 20 }} className="w-100 bg-white gap-3" p={2} pb={3}>
+                            <Box sx={{ maxWidth: '400px', borderBottomRightRadius: 20, boxShadow: '0px 30px 70px 0px #00000040' }} className="w-100 bg-white gap-3" p={2} pb={3}>
                                 <Typography text='رؤيتنا' sx={{ color: '#39281F', fontSize: '22px', fontWeight: 600, textAlign: 'end' }} />
                                 <Typography text='هو ببساطة نص شكلي (بمعنى أن الغاية هي الشكل وليس المحتوى) ويُستخدم في صناعات المطابع ودور
 هو ببساطة نص شكلي (بمعنى أن هو ببساطة نص شكلي (بمعنى أن'

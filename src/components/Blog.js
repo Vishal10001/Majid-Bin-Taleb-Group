@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Container, Grid } from "@mui/material";
 import WestIcon from '@mui/icons-material/West';
+import { useNavigate, useLocation } from "react-router-dom";
 
 import Footer from "../commonComponent/Footer";
 import Button from "../commonComponent/Button";
@@ -10,9 +11,16 @@ import userIcon from "../assets/userIcon.svg";
 import articalImg from "../assets/articalImg.svg";
 import whatsappIcon from "../assets/whatsappIcon.svg";
 import { mobileAndTabletCheck } from "../utils";
+import { useEffect } from "react";
 
 const Blog = () => {
     const isMobile = mobileAndTabletCheck();
+    
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     return (
         <Box sx={{
             backgroundImage: `url(${diamond})`,

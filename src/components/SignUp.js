@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, Paper, Container, Box, FormControl, InputLabel, Input } from '@mui/material';
+import { useNavigate, useLocation } from "react-router-dom";
 import { experimentalStyled as styled } from '@mui/material/styles';
 import diamond from "../assets/diamond.svg";
 import Typography from '../commonComponent/Typography';
@@ -11,6 +12,7 @@ import { mobileAndTabletCheck } from '../utils';
 import InputWithLabel from '../commonComponent/InputWithLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { RadioButtonUnchecked, CheckCircle } from '@material-ui/icons';
+import { useEffect } from 'react';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
@@ -24,6 +26,12 @@ const isMobile = mobileAndTabletCheck();
 const sampleText = `هل لديك حساب ؟ <span class='light-yellow fw-900'>تسجيل الدخول </spam>`;
 
 const SignUp = () => {
+
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     return (
         <>
             {!isMobile ?

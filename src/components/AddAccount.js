@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Container, Grid } from "@mui/material";
 import { Business, LocationCity, PermIdentityOutlined } from '@material-ui/icons';
+import { useNavigate, useLocation } from "react-router-dom";
 import Typography from "../commonComponent/Typography";
 import diamond from "../assets/diamond.svg";
 import Button from "../commonComponent/Button";
@@ -9,9 +10,15 @@ import whatsappIcon from "../assets/whatsappIcon.svg";
 import LocalCityIcon from "../assets/bank-svgrepo-com.svg";
 import userOutlineIcon from "../assets/person-svgrepo-com.svg";
 import { SvgIcon } from "../commonComponent/SvgIcon";
+import { useEffect } from "react";
 
 const AddAccount = () => {
 
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+    
     const sampleText = `معنا الآن عبرتساب <span class='light-yellow fw-900'>تواصل </span> `;
     const sampleText2 = `اختر نوع الحساب <span class="color-red">*</span>`
 

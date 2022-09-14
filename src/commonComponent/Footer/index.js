@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, Container } from '@mui/material';
 import { LinkedIn, LocalPostOffice } from '@mui/icons-material';
 import Twitter from '@mui/icons-material/Twitter';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Typography from '../Typography';
 import { footerList } from '../../utils';
 
 const Footer = (props) => {
+
     let navigate = useNavigate();
     const { sx, hideContent, showSecondFooter, children } = props;
     return (
@@ -23,11 +24,11 @@ const Footer = (props) => {
                     className='flex-column'
                 >
                     <Box pt={3} pb={4} mb={3}>
-                        <Box mt={3} className='d-flex align-items-start justify-content-between'>
+                        <Box mt={3} className='d-flex gap-3 align-items-start justify-content-between'>
                             <Box className='d-flex align-items-end flex-column gap-4'>
                                 <Typography text='القائمة ' sx={{ color: '#39281F', fontSize: '23px', fontWeight: 700 }} />
                                 {footerList?.map((item, index) =>
-                                    <Box onClick={() => navigate(item?.pathName)}>
+                                    <Box sx={{ cursor: 'pointer' }} onClick={() => navigate(item?.pathName)}>
                                         <Typography text={item?.navName} sx={{ color: window?.location?.pathname.includes(item?.pathName) ? '#AE965A' : '#000000', fontWeight: 400 }} />
                                     </Box>
                                 )}
@@ -35,9 +36,9 @@ const Footer = (props) => {
                             <Box className='d-flex align-items-center flex-column gap-4'>
                                 <Typography text='تابعنا على ' sx={{ color: '#39281F', fontSize: '23px', fontWeight: 700 }} />
                                 <Box className='d-flex gap-2'>
-                                    <Twitter sx={{ fill: '#AE965A' }} />
-                                    <LinkedIn sx={{ fill: '#AE965A' }} />
-                                    <LocalPostOffice sx={{ fill: '#AE965A' }} />
+                                    <Twitter sx={{ fill: '#AE965A', cursor: 'pointer' }} />
+                                    <LinkedIn sx={{ fill: '#AE965A', cursor: 'pointer' }} />
+                                    <LocalPostOffice sx={{ fill: '#AE965A', cursor: 'pointer' }} />
                                 </Box>
                             </Box>
                             <Box className='d-flex align-items-end flex-column gap-4'>

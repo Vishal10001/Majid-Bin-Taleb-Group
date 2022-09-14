@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Grid, Box, Container, TextField } from '@mui/material';
+import { useNavigate, useLocation } from "react-router-dom"; 
 import diamond from "../assets/diamond.svg";
 import Typography from '../commonComponent/Typography';
 import HammerImg from '../assets/hammer2.jpg';
@@ -7,6 +8,7 @@ import Button from '../commonComponent/Button';
 import Footer from '../commonComponent/Footer';
 import { mobileAndTabletCheck } from '../utils';
 import whatsappIcon from "../assets/whatsappIcon.svg";
+import { useEffect } from "react";
 
 const isMobile = mobileAndTabletCheck();
 const sampleText = ` هل تتذكر كلمة المرور ؟ <span class='light-yellow fw-600'> تسجيل الدخول  </span>`;
@@ -14,6 +16,11 @@ const sampleText = ` هل تتذكر كلمة المرور ؟ <span class='light
 const ResetPasswordSecond = () => {
 
     const [otp, setOtp] = useState({ value: '', otp1: "", otp2: "", otp3: "", otp4: "", otp5: "", disable: true });
+
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
 
     const handleChange = (value1, e) => {
         let { value } = e?.target;

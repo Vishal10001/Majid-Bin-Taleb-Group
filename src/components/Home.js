@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Box } from '@mui/material';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import WestIcon from '@mui/icons-material/West';
 import EastIcon from '@mui/icons-material/East';
@@ -21,6 +21,7 @@ import teamImg from "../assets/teamImg.svg";
 import { feedbackArray, mobileAndTabletCheck, practiceArray } from "../utils";
 import Footer from "../commonComponent/Footer";
 import Modal from "../commonComponent/Modal";
+import { useEffect } from "react";
 
 const slickImgStyle = {
     color: '#fff !important',
@@ -82,26 +83,21 @@ const imageSlider = [
     { imageSrc: dhlImg },
     { imageSrc: bankLogo },
     { imageSrc: dhlImg },
-    { imageSrc: bankLogo },
-    { imageSrc: dhlImg },
-    { imageSrc: bankLogo },
-    { imageSrc: dhlImg },
-    { imageSrc: bankLogo },
-    { imageSrc: dhlImg },
-    { imageSrc: bankLogo },
-    { imageSrc: dhlImg },
-    { imageSrc: bankLogo },
-    { imageSrc: dhlImg },
 ];
 
 const Home = () => {
+
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     const [open, setOpen] = React.useState(false);
     const sampleText = 'نوفر من خلال مجموعة ماجد بن  طالب مجموعة  <br/>مختلفة من الخدمات القانونية<br/> التى تحتاج اليه';
     const isMobile = mobileAndTabletCheck();
     let navigate = useNavigate();
     return (
         <Box sx={{ backgroundImage: `url(${diamond})` }}>
-            {/* <Box> */}
             <Box mt='120px' className="d-flex align-items-center justify-content-end">
                 <Box sx={{ background: '#fff' }} px={2} py={1} mr={2}>
                     <Typography className='text-end'
@@ -123,39 +119,48 @@ const Home = () => {
                     <img style={{ borderTopRightRadius: 120 }} src={HammerImg} alt='' className="w-100 h-100" />
                 </Box>
                 <Box className='d-flex flex-wrap flex-column' pr={2} sx={{ order: isMobile ? 0 : 1 }}>
-                    <Box mt={4} sx={{ maxWidth: '450px' }}>
-                        <Typography className='text-end'
-                            sx={{
-                                fontSize: '34px',
-                                fontWeight: 900,
-                                color: '#39281F',
-                            }}
-                            text='مجموعة ماجد بن طالب للمحاماة والاستشارات القانونية' />
-                        <Typography
-                            className='text-end'
-                            sx={{
-                                fontSize: '18px',
-                                mt: 2,
-                                fontWeight: 500,
-                                color: '#39281F'
-                            }}
-                            dangerouslySetInnerHTML={{ __html: sampleText }}
-                        />
-                    </Box>
-                    <Box sx={{ mt: 7 }} className='d-flex align-items-center justify-content-end'>
-                        <Button size='small' rounded sx={(theme) => ({
-                            maxHeight: '40px',
-                            height: '100%',
-                            backgroundColor: theme.palette.secondary.main,
-                            color: theme.palette.white[100],
-                            lineHeight: '35px',
-                            fontWeight: 800
-                        })}
-                            onClick={() => navigate('/consultation')}
-                        >
-                            اطلب استشارتك الآن
-                        </Button>
-                    </Box>
+                    <Container
+                        maxWidth={false}
+                        sx={{
+                            gap: '10px',
+                            display: 'flex',
+                        }}
+                        className='flex-column '
+                    >
+                        <Box mt={4} sx={{ maxWidth: '450px' }}>
+                            <Typography className='text-end'
+                                sx={{
+                                    fontSize: '34px',
+                                    fontWeight: 900,
+                                    color: '#39281F',
+                                }}
+                                text='مجموعة ماجد بن طالب للمحاماة والاستشارات القانونية' />
+                            <Typography
+                                className='text-end'
+                                sx={{
+                                    fontSize: '18px',
+                                    mt: 2,
+                                    fontWeight: 500,
+                                    color: '#39281F'
+                                }}
+                                dangerouslySetInnerHTML={{ __html: sampleText }}
+                            />
+                        </Box>
+                        <Box sx={{ mt: 7 }} className='d-flex align-items-center justify-content-end'>
+                            <Button size='small' rounded sx={(theme) => ({
+                                maxHeight: '40px',
+                                height: '100%',
+                                backgroundColor: theme.palette.secondary.main,
+                                color: theme.palette.white[100],
+                                lineHeight: '35px',
+                                fontWeight: 800
+                            })}
+                                onClick={() => navigate('/consultation')}
+                            >
+                                اطلب استشارتك الآن
+                            </Button>
+                        </Box>
+                    </Container>
                 </Box>
             </Box>
             <Box className='d-flex align-items-center justify-content-center' mt='-30px'>
@@ -164,14 +169,14 @@ const Home = () => {
                     py={3}>
                     <Box px={{ xs: 1, md: 3, sm: 2, lg: 3, xl: 4 }} className='d-flex align-items-center' sx={{ borderRight: '1px solid #fff' }}>
                         <Typography sx={(theme) => ({ fontSize: '20px', color: theme.palette.white[100], mr: 1 })}
-                            text='قضية 30+' />
+                            text='+قضية 30+' />
                         <Box sx={{ height: '30px', width: '30px' }}>
                             <img className='h-100 w-100' src={groupImg} alt='' />
                         </Box>
                     </Box>
                     <Box px={{ xs: 2, md: 3, sm: 2, lg: 3, xl: 4 }} className='d-flex align-items-center'>
                         <Typography sx={(theme) => ({ fontSize: '20px', color: theme.palette.white[100], mr: 1 })}
-                            text='عميل 30+' />
+                            text='+عميل 30' />
                         <Box sx={{ height: '30px', width: '30px' }}>
                             <img className='h-100 w-100' src={scalesImg} alt='' />
                         </Box>
@@ -185,7 +190,7 @@ const Home = () => {
                     cursor: 'pointer'
                 })} px={0.5}
                     pt={2.5} pb={0.5}
-                    
+
                     onClick={() => document.querySelector('.footer-sub').scrollIntoView({ behavior: 'smooth' })}
                 >
                     <ExpandMoreIcon sx={{ fill: 'white' }} />
@@ -292,29 +297,6 @@ const Home = () => {
                         fontSize: '25px',
                         fontWeight: 800
                     })} />
-                    <Box my={5} className='d-flex align-items-center justify-content-end gap-3 w-100'>
-                        <Box className='position-relative'
-                            sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30, boxShadow: '0px 4px 4px 0px #00000040' })} p={1}
-                            px={2}>
-                            <Box sx={{
-                                position: 'absolute',
-                                top: '50%',
-                                left: '100%',
-                                marginTop: '-5px',
-                                borderWidth: '5px',
-                                borderStyle: 'solid',
-                                borderColor: 'transparent transparent transparent white',
-                            }} />
-                            <Typography sx={(theme) => ({
-                                color: theme.palette.primary.main,
-                                fontSize: '14px',
-                                fontWeight: 500
-                            })} text='تواصل معنا الآن عبر الواتساب ' />
-                        </Box>
-                        <Box sx={{ maxWidth: '40px', maxHeight: '40px' }}>
-                            <img src={whatsappIcon} alt='' className="h-100 w-100" />
-                        </Box>
-                    </Box>
                 </Container>
             </Box>
             <Box>
@@ -328,6 +310,29 @@ const Home = () => {
                                 </Box>)}
                         </Slider>
                     </Container>
+                </Box>
+                <Box mt={7} mb={5} className='d-flex align-items-center justify-content-end gap-3 w-100'>
+                    <Box className='position-relative'
+                        sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderRadius: 30, boxShadow: '0px 4px 4px 0px #00000040' })} p={1}
+                        px={2}>
+                        <Box sx={{
+                            position: 'absolute',
+                            top: '50%',
+                            left: '100%',
+                            marginTop: '-5px',
+                            borderWidth: '5px',
+                            borderStyle: 'solid',
+                            borderColor: 'transparent transparent transparent white',
+                        }} />
+                        <Typography sx={(theme) => ({
+                            color: theme.palette.primary.main,
+                            fontSize: '14px',
+                            fontWeight: 500
+                        })} text='تواصل معنا الآن عبر الواتساب ' />
+                    </Box>
+                    <Box sx={{ maxWidth: '40px', maxHeight: '40px' }}>
+                        <img src={whatsappIcon} alt='' className="h-100 w-100" />
+                    </Box>
                 </Box>
             </Box>
             <Box mt={10}>
@@ -347,7 +352,7 @@ const Home = () => {
                     })} />
                 </Container>
             </Box>
-            <Box mt={2} sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderTopRightRadius: '140px', maxHeight: '500px', height: '100%' })} p={5}>
+            <Box mt={2} sx={(theme) => ({ backgroundColor: theme.palette.white[100], borderTopRightRadius: '80px', maxHeight: '500px', height: '100%' })} p={5}>
                 <Container maxWidth={false}>
                     <Slider {...settings}>
                         {feedbackArray.map((item, index) =>
@@ -397,11 +402,11 @@ const Home = () => {
                     })} />
                 </Container>
             </Box>
-            <Box mt={5} sx={(theme) => ({ backgroundColor: theme.palette.white[100] })} p={5}>
+            <Box mt={5} sx={(theme) => ({ backgroundColor: "#39281F" })} p={5}>
                 <Container maxWidth={false} className='team'>
                     <Slider {...settings}>
                         {feedbackArray.map((item, index) =>
-                            <Box p={2} key={index} sx={{ border: '1px solid #AE965A', height: isMobile ? '190px' : '450px', width: '400px' }}
+                            <Box p={2} key={index} sx={{ background: "#FDFDFD", border: '1px solid #AE965A', height: isMobile ? '190px' : '450px', width: '400px' }}
                                 className="d-flex align-items-end justify-content-center">
                                 <Box width="100%">
                                     <Box mt={5} width="100%">

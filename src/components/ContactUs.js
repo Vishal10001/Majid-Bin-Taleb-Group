@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Grid, Paper, Container, Box, FormControl, InputLabel } from '@mui/material';
 import { experimentalStyled as styled } from '@mui/material/styles';
+import { useNavigate, useLocation } from "react-router-dom";
+
 import diamond from "../assets/diamond.svg";
 import Typography from '../commonComponent/Typography';
 import whatsappIcon from "../assets/whatsappIcon.svg";
@@ -18,6 +20,12 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const ContactUs = () => {
+
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     return (
         <Box sx={{ backgroundImage: `url(${diamond})` }}>
             <Box mt={5}>
@@ -64,7 +72,7 @@ const ContactUs = () => {
                             <Grid className='gap-3 d-flex flex-column' item xs={12} sm={6} md={6}>
                                 <InputWithLabel required label="الاسم بالكامل " />
                                 <InputWithLabel required label="البريد الالكتروني  " />
-                                <InputWithLabel required label="الموضوع" sx={{boxShadow: '0px 10px 15px 0px #0000001A'}} />
+                                <InputWithLabel required label="الموضوع" sx={{ boxShadow: '0px 10px 15px 0px #0000001A' }} />
                                 <Box className=' w-100 h-100'
                                     px={2} pt={1} sx={{
                                         maxHeight: '400px',
